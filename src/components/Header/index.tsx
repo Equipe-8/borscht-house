@@ -2,7 +2,6 @@ import { MdShoppingCart, MdLogout } from 'react-icons/md';
 
 import SearchForm from './SearchForm';
 import { StyledHeader } from './style';
-import LogoKenzieBurguer from '../../assets/LogoKenzieBurguer.svg';
 
 import { StyledContainer } from '../../styles/grid';
 
@@ -10,11 +9,7 @@ const Header = () => (
   <StyledHeader>
     <StyledContainer containerWidth={1300}>
       <div className='flexGrid'>
-        <img
-          src={LogoKenzieBurguer}
-          alt='Kenzie Burguer Logo'
-          className='logo'
-        />
+        <span>Logo</span>
         <nav className='nav' role='navigation'>
           <SearchForm />
           <div className='buttons'>
