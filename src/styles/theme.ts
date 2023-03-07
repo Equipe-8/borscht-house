@@ -11,7 +11,7 @@ export const mainTheme = {
     gray300: '#BFB3A8', // grey: 2
     gray150: '#D9D9D9', //grey 4
     gray100: '#000000', // grey 5
-    gray0: '#F506B2', //não vai usar
+    gray0: '#D9042B', //borda do card
     white: '#FFFFFF', //grey 6
     feedback: {
       negative: '#E60000',
