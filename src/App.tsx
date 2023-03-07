@@ -1,11 +1,17 @@
+import { CartContextProvider } from './providers/CartContext';
 import Router from './routes';
 import { GlobalStyles } from './styles/global';
 
-const App = () => (
-  <>
-    <GlobalStyles />
-    <Router />
-  </>
-);
+function App()
+{
+  return (
+    <div>
+      <CartContextProvider>
+      <GlobalStyles />
+      <Router />
+    </CartContextProvider>
+    </div>
+  )
+};
 
 export default App;

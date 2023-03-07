@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const StyledHeader = styled.header`
-  background: ${({ theme }) => theme.colors.gray0};
+  background: ${({ theme }) => theme.colors.gray600};
   .flexGrid {
     display: flex;
     align-items: center;
@@ -10,18 +10,21 @@ export const StyledHeader = styled.header`
     gap: 20px;
 
     .logo {
-      max-width: 160px;
+      font-family: ${({ theme }) => theme.fonts.secundary};
+      color: ${({ theme }) => theme.colors.gray100};
+      font-size: 3rem;
     }
     .nav {
       display: flex;
       align-items: center;
-      gap: 20px;
+      gap: 60px;
 
       .buttons {
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: 15px;
+        gap: 60px;
+        margin-right: 50px;
 
         button {
           background: transparent;

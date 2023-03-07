@@ -9,7 +9,7 @@ const Header = () => (
   <StyledHeader>
     <StyledContainer containerWidth={1300}>
       <div className='flexGrid'>
-        <span>Logo</span>
+        <span className='logo'>Borscht House</span>
         <nav className='nav' role='navigation'>
           <SearchForm />
           <div className='buttons'>
