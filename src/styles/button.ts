@@ -25,12 +25,12 @@ export const StyledButtonCSS = css<IStyledButtonProps>`
       case 'default':
         return css`
           padding: 0 30px;
-          height: 60px;
+          height: 50px;
         `;
       case 'medium':
         return css`
           padding: 0 20px;
-          height: 40px;
+          height: 30px;
         `;
     }
   }}
@@ -39,19 +39,23 @@ export const StyledButtonCSS = css<IStyledButtonProps>`
     switch ($buttonStyle) {
       case 'green':
         return css`
-          color: ${theme.colors.white};
-          background: ${theme.colors.primary};
+         color: ${theme.colors.secondary};
+          background: ${theme.colors.white};
+          border: 1px solid ${theme.colors.secondary};
           &:hover {
-            opacity: 0.5;
+            color: ${theme.colors.white};
+          background: ${theme.colors.secondary};
+          border: 1px solid ${theme.colors.white};
           }
         `;
       case 'gray':
         return css`
-          color: ${theme.colors.gray300};
-          background: ${theme.colors.gray100};
+          color: ${theme.colors.primary};
+          background: ${theme.colors.tertiary};
+          margin-left: 100px;
           &:hover {
-            color: ${theme.colors.gray100};
-            background: ${theme.colors.gray300};
+            color: ${theme.colors.tertiary};
+            background: ${theme.colors.secondary};
           }
         `;
     }

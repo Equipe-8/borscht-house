@@ -11,15 +11,18 @@ export const StyledSearchForm = styled.form`
 
   padding: 8px;
   border-radius: 8px;
-  border: 2px solid ${({ theme }) => theme.colors.gray100};
+  border: 2px solid ${({ theme }) => theme.colors.primary};
   transition: 0.4s;
 
-  background: ${({ theme }) => theme.colors.white};
+  background: ${({ theme }) => theme.colors.gray600};
+  opacity: 64%;
 
   input {
     width: 100%;
     font-family: ${({ theme }) => theme.fonts.primary};
     height: 40px;
+    color: ${({ theme }) => theme.colors.gray300};
+    background: ${({ theme }) => theme.colors.gray600};
   }
 
   input:focus {

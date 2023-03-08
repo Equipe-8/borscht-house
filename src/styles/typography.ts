@@ -15,6 +15,7 @@ export const StyledTitle = styled(BaseTitle)<IStyledTitleProps>`
   width: 100%;
 
   font-family: ${({ theme }) => theme.fonts.primary};
+  font-family: ${({ theme }) => theme.fonts.secundary};
   line-height: 1.6;
 
   text-align: ${({ textAlign }) => textAlign};
@@ -35,7 +36,7 @@ export const StyledTitle = styled(BaseTitle)<IStyledTitleProps>`
       case 'three':
         return css`
           font-size: 1.15rem;
-          font-weight: 700;
+          font-weight: 600;
         `;
 
       case 'four':
@@ -67,7 +68,7 @@ export const StyledParagraph = styled.p<IStyledParagraphProps>`
         `;
       default:
         return css`
-          color: ${theme.colors.gray600};
+          color: ${theme.colors.gray100};
         `;
     }
   }}
