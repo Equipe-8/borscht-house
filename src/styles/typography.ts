@@ -18,6 +18,10 @@ export const StyledTitle = styled(BaseTitle)<IStyledTitleProps>`
   font-family: ${({ theme }) => theme.fonts.secundary};
   line-height: 1.6;
 
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
   text-align: ${({ textAlign }) => textAlign};
 
   ${({ $fontSize }) => {
@@ -46,6 +50,11 @@ export const StyledTitle = styled(BaseTitle)<IStyledTitleProps>`
         `;
     }
   }}
+`;
+
+export const StyledPriceP = styled.span`
+  color: #828282;
+  font-size: 0.8rem;
 `;
 
 export const StyledParagraph = styled.p<IStyledParagraphProps>`
