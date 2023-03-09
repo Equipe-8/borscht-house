@@ -1,15 +1,21 @@
 import React, { createContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { ICartContext, IDefaultProviderProps, IProducts } from './@types';
+import {
+  ICart,
+  ICartContext,
+  IDefaultProviderProps,
+  IProducts,
+} from './@types';
 import { api } from '../../services/api';
 
 export const CartContext = createContext({} as ICartContext);
 
 export const CartContextProvider = ({ children }: IDefaultProviderProps) => {
+  const [showModal, setShowModal] = useState(false);
   const [search, setSearch] = useState('');
   const [products, setProducts] = useState<IProducts[]>([]);
-  const [carts, setCarts] = useState<IProducts[]>([]);
+  const [carts, setCarts] = useState([] as ICart[]);
   const token = localStorage.getItem('@TOKEN');
   const navigate = useNavigate();
 
@@ -40,7 +46,7 @@ export const CartContextProvider = ({ children }: IDefaultProviderProps) => {
     local();
   }, [token]);
 
-  const toAdd = (product: IProducts) => {
+  const toAdd = (product: ICart) => {
     const data = carts.find((cart) => cart.id === product.id);
     const validation = products.some((element) => element.id === data?.id);
 
@@ -52,18 +58,39 @@ export const CartContextProvider = ({ children }: IDefaultProviderProps) => {
     }
   };
 
+  const totalPrice = carts.reduce(
+    (accumulator, currentValue) =>
+      accumulator + currentValue.price * currentValue.count,
+    0
+  );
+
+  const emptyCart = () => {
+    setCarts([]);
+  };
+
+  const removeProductFromCart = (currentId: number) => {
+    const newCart = carts.filter((product) => product.id !== currentId);
+
+    setCarts(newCart);
+  };
+
   return (
     <CartContext.Provider
       value={{
-        products,
+        setShowModal,
         setProducts,
-        carts,
         setCarts,
-        search,
         setSearch,
-        searchList,
         searchCart,
         toAdd,
+        emptyCart,
+        removeProductFromCart,
+        totalPrice,
+        showModal,
+        products,
+        carts,
+        search,
+        searchList,
       }}
     >
       {children}

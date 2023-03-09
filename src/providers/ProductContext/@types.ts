@@ -4,16 +4,25 @@ export interface IDefaultProviderProps {
   children: ReactNode;
 }
 
+export interface ICart extends IProducts {
+  count: number;
+}
+
 export interface ICartContext {
   products: IProducts[];
-  setProducts: React.Dispatch<React.SetStateAction<IProducts[]>>;
   carts: IProducts[];
-  setCarts: React.Dispatch<React.SetStateAction<IProducts[]>>;
   search: string;
-  setSearch: React.Dispatch<React.SetStateAction<string>>;
-  searchCart: (event: React.ChangeEvent | any) => void;
   searchList: IProducts[];
-  toAdd: (product: IProducts) => void;
+  showModal: boolean;
+  totalPrice: number;
+  emptyCart: any;
+  setProducts: React.Dispatch<React.SetStateAction<IProducts[]>>;
+  setCarts: React.Dispatch<React.SetStateAction<ICart[]>>;
+  setSearch: React.Dispatch<React.SetStateAction<string>>;
+  removeProductFromCart: (currentId: number) => void;
+  setShowModal: React.Dispatch<React.SetStateAction<boolean>>;
+  toAdd: (product: ICart) => void;
+  searchCart: (event: React.ChangeEvent | any) => void;
 }
 
 export interface IProducts {
