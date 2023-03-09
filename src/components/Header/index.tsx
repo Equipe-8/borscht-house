@@ -1,34 +1,52 @@
 import { MdShoppingCart, MdLogout } from 'react-icons/md';
 
+import { useContext } from 'react';
 import SearchForm from './SearchForm';
 import { StyledHeader } from './style';
-
+import { UserContext } from '../../providers/UserContext/UserContext';
 import { StyledContainer } from '../../styles/grid';
+import { UpdateModal } from '../UpdateModal';
 
-const Header = () => (
-  <StyledHeader>
-    <StyledContainer containerWidth={1300}>
-      <div className='flexGrid'>
-        <span className='logo'>Borscht House</span>
-        <nav className='nav' role='navigation'>
-          <SearchForm />
-          <div className='buttons'>
-            <button
-              type='button'
+const Header = () => {
+  console.log('oi');
+  const { handleModalEdit } = useContext(UserContext);
+  console.log(handleModalEdit);
+
+  return (
+    <StyledHeader>
+      <StyledContainer containerWidth={1300}>
+        <div className='flexGrid'>
+          <div className='IconeAndLogo'>
+            <img
+              className='icone'
+              src='src/assets/icone.jpeg'
+              alt='Icone para alterar o endereço'
               onClick={() => {
-                console.log('Criar lógica');
+                console.log('teste');
               }}
-            >
-              <MdShoppingCart size={28} />
-            </button>
-            <button type='button'>
-              <MdLogout size={28} />
-            </button>
+            />
+            <img src='./src/assets/nome.jpeg' alt='Logo' />
           </div>
-        </nav>
-      </div>
-    </StyledContainer>
-  </StyledHeader>
-);
+          <nav className='nav' role='navigation'>
+            <SearchForm />
+            <div className='buttons'>
+              <button
+                type='button'
+                onClick={() => {
+                  console.log('Criar lógica');
+                }}
+              >
+                <MdShoppingCart size={28} />
+              </button>
+              <button type='button'>
+                <MdLogout size={28} />
+              </button>
+            </div>
+          </nav>
+        </div>
+      </StyledContainer>
+    </StyledHeader>
+  );
+};
 
 export default Header;
