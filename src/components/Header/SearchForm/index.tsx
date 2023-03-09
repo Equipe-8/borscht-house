@@ -2,7 +2,7 @@ import { MdSearch } from 'react-icons/md';
 import { useContext } from 'react';
 import { StyledSearchForm } from './style';
 import { StyledButton } from '../../../styles/button';
-import { CartContext } from '../../../providers/ProductContext';
+import { CartContext } from '../../../providers/ProductContext/ProductContext';
 
 const SearchForm = () => {
   const { searchCart } = useContext(CartContext);
