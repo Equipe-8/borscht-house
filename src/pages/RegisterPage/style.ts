@@ -6,8 +6,19 @@ export const StyledRegisterPage = styled.main`
   min-height: 100vh;
   background-image: url('./src/assets/borscht1 OK.png');
   background-size: cover;
-  background-position: center;
+  background-position-x: -270px;
   overflow-y: hidden;
+
+  .container {
+    justify-content: center;
+    width: 100vw;
+    display: flex;
+    -webkit-box-align: center;
+  }
+
+  p {
+    color: ${({ theme }) => theme.colors.gray0};
+  }
 
   .span {
     height: 80px;
@@ -15,12 +26,11 @@ export const StyledRegisterPage = styled.main`
     width: 50%;
     border-radius: 8px;
     margin-top: 25px;
-
-    margin-left: 120px;
   }
 
   .insideSpan {
     background: ${({ theme }) => theme.colors.secondary};
+    opacity: 64%;
     height: 100%;
     width: 250px;
     display: flex;
@@ -30,7 +40,7 @@ export const StyledRegisterPage = styled.main`
 
   span {
     font-size: 16px;
-    color: var(--gray300);
+    color: ${({ theme }) => theme.colors.gray300};
   }
 
   .flexGrid {
@@ -44,7 +54,7 @@ export const StyledRegisterPage = styled.main`
     width: 60%;
     display: flex;
     flex-direction: column;
-    gap: 22px;
+    gap: 12px;
     padding: 20px;
   }
   input {
@@ -53,6 +63,13 @@ export const StyledRegisterPage = styled.main`
     border-radius: 8px;
     background: ${({ theme }) => theme.colors.gray600};
     opacity: 64%;
+    padding-left: 16px;
+    font-weight: 600;
+  }
+
+  input::placeholder {
+    color: ${({ theme }) => theme.colors.secondary};
+    font-weight: 600;
   }
 
   h1 {
@@ -68,7 +85,8 @@ export const StyledRegisterPage = styled.main`
     height: 50px;
     width: 100%;
     border-radius: 8px;
-    background-color: var(--tertiary);
+    background-color: ${({ theme }) => theme.colors.tertiary};
+    font-weight: 600;
   }
 
   @media (min-width: 500px) {
@@ -78,7 +96,13 @@ export const StyledRegisterPage = styled.main`
     background-image: url('./src/assets/borscht1 OK.png');
     background-size: cover;
     background-position: center;
+    background-position-y: 0;
     overflow-y: hidden;
+    background-repeat: no-repeat;
+
+    p {
+      color: ${({ theme }) => theme.colors.gray0};
+    }
 
     .span {
       height: 90px;
@@ -90,7 +114,8 @@ export const StyledRegisterPage = styled.main`
     }
 
     .insideSpan {
-      background-color: #80041999;
+      background-color: ${({ theme }) => theme.colors.secondary};
+      opacity: 64%;
       height: 100%;
       width: 330px;
       display: flex;
@@ -101,7 +126,7 @@ export const StyledRegisterPage = styled.main`
 
     span {
       font-size: 20px;
-      color: var(--gray300);
+      color: ${({ theme }) => theme.colors.gray300};
       line-height: 29.05px;
     }
 
@@ -116,14 +141,24 @@ export const StyledRegisterPage = styled.main`
       width: 73%;
       display: flex;
       flex-direction: column;
-      gap: 22px;
+      gap: 24px;
       padding: 20px;
     }
     input {
       height: 50px;
       width: 100%;
       border-radius: 8px;
-      background-color: #d9ccc1a3;
+      background-color: ${({ theme }) => theme.colors.gray600};
+      opacity: 64%;
+      padding-left: 30px;
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    input::placeholder {
+      color: ${({ theme }) => theme.colors.secondary};
+      font-size: 16px;
+      font-weight: 600;
     }
 
     h1 {
@@ -139,7 +174,9 @@ export const StyledRegisterPage = styled.main`
       height: 50px;
       width: 100%;
       border-radius: 8px;
-      background-color: var(--tertiary);
+      background-color: ${({ theme }) => theme.colors.tertiary};
+      font-size: 16px;
+      font-weight: 600;
     }
   }
 `;

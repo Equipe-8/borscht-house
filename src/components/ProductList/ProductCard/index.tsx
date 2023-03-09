@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import { StyledProductCard } from './style';
 import { StyledButton } from '../../../styles/button';
 import { StyledParagraph, StyledTitle } from '../../../styles/typography';
-import { CartContext } from '../../../providers/ProductContext';
+import { CartContext } from '../../../providers/ProductContext/ProductContext';
 
 const ProductCard = () => {
   const { toAdd, searchList } = useContext(CartContext);

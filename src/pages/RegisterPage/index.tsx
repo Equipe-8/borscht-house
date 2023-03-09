@@ -1,36 +1,15 @@
 import 'react-toastify/dist/ReactToastify.css';
 import { useForm } from 'react-hook-form';
-import * as yup from 'yup';
-import { useNavigate } from 'react-router-dom';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { StyledRegisterPage } from './style';
+import { schema } from './RegisterFormSchema/RegisterFormSchema';
+import { iFormData } from '../../providers/UserContext/@types';
 import { api } from '../../api/api';
 
-interface iFormData {
-  email: string;
-  contact: string;
-  address: string;
-  name: string;
-  password: string;
-  confirmPassword: string;
-}
-
-const schema = yup.object().shape({
-  name: yup.string().required('Campo obrigatório'),
-  email: yup.string().required('Campo obrigatório').email('Email inválido'),
-  contact: yup.string().required('Campo obrigatório'),
-  address: yup.string().required('Campo obrigatório'),
-  password: yup
-    .string()
-    .required('Campo obrigatório')
-    .min(6, 'A senha deve ter no mínimo 6 caracteres'),
-  confirmPassword: yup
-    .string()
-    .required('Campo obrigatório')
-    .oneOf([yup.ref('password')], 'As senhas não conferem'),
-});
-
 const RegisterPage = () => {
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -38,30 +17,30 @@ const RegisterPage = () => {
   } = useForm<iFormData>({
     resolver: yupResolver(schema),
   });
-  const navigate = useNavigate();
-  const onSubmitRegister = async (data: iFormData) => {
-    console.log(data);
 
+  const onSubmitRegister = async (data: iFormData) => {
     try {
       const response = await api.post('/register', data);
-      console.log(response);
-      console.log(response.data);
+      toast.success('Cadastro realizado com sucesso!');
       navigate('/');
-    } catch (error) {
-      console.log(error);
+    } catch (error: any) {
+      toast.error(error.response.data);
     }
   };
 
   return (
     <StyledRegisterPage>
-      <div className='span'>
-        <div className='insideSpan'>
-          <span>
-            Crie sua conta para saborear nossa culinária de iguarias do leste
-            europeu!
-          </span>
+      <div className='container'>
+        <div className='span'>
+          <div className='insideSpan'>
+            <span>
+              Crie sua conta para saborear nossa culinária de iguarias do leste
+              europeu!
+            </span>
+          </div>
         </div>
       </div>
+
       <div className='flexGrid'>
         <form onSubmit={handleSubmit(onSubmitRegister)}>
           <input type='text' placeholder='Nome' {...register('name')} />
