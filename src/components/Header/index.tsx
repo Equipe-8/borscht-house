@@ -5,7 +5,7 @@ import SearchForm from './SearchForm';
 import { StyledHeader } from './style';
 
 import { StyledContainer } from '../../styles/grid';
-import { CartContext } from '../../providers/ProductContext';
+import { CartContext } from '../../providers/ProductContext/ProductContext';
 
 const Header = () => {
   const { setShowModal } = useContext(CartContext);

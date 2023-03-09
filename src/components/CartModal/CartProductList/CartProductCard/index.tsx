@@ -9,7 +9,7 @@ import {
 } from './style';
 import { IPropsProductCart } from './interfaces';
 import { StyledPriceP, StyledTitle } from '../../../../styles/typography';
-import { CartContext } from '../../../../providers/ProductContext';
+import { CartContext } from '../../../../providers/ProductContext/ProductContext';
 
 const CartProductCard = ({ product }: IPropsProductCart) => {
   const { removeProductFromCart } = useContext(CartContext);

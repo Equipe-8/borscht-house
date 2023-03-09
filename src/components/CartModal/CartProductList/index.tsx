@@ -4,7 +4,7 @@ import CartProductCard from './CartProductCard';
 import { StyledBtns, StyledCartProductList } from './style';
 import { StyledButton } from '../../../styles/button';
 import { StyledParagraph } from '../../../styles/typography';
-import { CartContext } from '../../../providers/ProductContext';
+import { CartContext } from '../../../providers/ProductContext/ProductContext';
 
 const CartProductList = () => {
   const { carts, totalPrice, emptyCart } = useContext(CartContext);

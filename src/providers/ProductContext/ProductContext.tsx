@@ -7,7 +7,7 @@ import {
   IDefaultProviderProps,
   IProducts,
 } from './@types';
-import { api } from '../services/api';
+import { api } from '../../services/api';
 
 export const CartContext = createContext({} as ICartContext);
 
