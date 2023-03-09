@@ -5,6 +5,13 @@ import SearchForm from './SearchForm';
 import { StyledHeader } from './style';
 import { UserContext } from '../../providers/UserContext/UserContext';
 import { StyledContainer } from '../../styles/grid';
+// vindo do develop
+import { CartContext } from '../../providers/ProductContext/ProductContext';
+
+const Header = () => {
+  const { setShowModal } = useContext(CartContext);
+
+
 import { UpdateModal } from '../UpdateModal';
 
 const Header = () => {
@@ -12,10 +19,14 @@ const Header = () => {
   const { handleModalEdit } = useContext(UserContext);
   console.log(handleModalEdit);
 
+// userUpdate
   return (
     <StyledHeader>
       <StyledContainer containerWidth={1300}>
         <div className='flexGrid'>
+// userUpdate
+          <span className='logo'>Borscht House</span>
+
           <div className='IconeAndLogo'>
             <img
               className='icone'
@@ -33,11 +44,20 @@ const Header = () => {
               <button
                 type='button'
                 onClick={() => {
+//vindo do develop
+                  setShowModal(true);
                   console.log('Criar lógica');
                 }}
               >
                 <MdShoppingCart size={28} />
               </button>
+//vindo do develop
+              <button
+                type='button'
+                onClick={() => {
+                  console.log('user logout');
+                }}
+              >
               <button type='button'>
                 <MdLogout size={28} />
               </button>
