@@ -1,8 +1,10 @@
 import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+
 import { CartContextProvider } from './providers/ProductContext/ProductContext';
+
 import { GlobalStyles } from './styles/global';
 import Router from './routes/routes';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
@@ -19,7 +21,7 @@ function App() {
           pauseOnFocusLoss
           draggable
           pauseOnHover
-          theme='dark'
+          theme='light'
         />
         <Router />
       </CartContextProvider>

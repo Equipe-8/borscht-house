@@ -12,3 +12,7 @@ export interface iFormData {
 export interface iUserContext {
   children: ReactNode;
 }
+
+export interface iContexts {
+  handleModalEdit: () => void;
+}
