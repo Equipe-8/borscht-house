@@ -15,4 +15,6 @@ export interface iUserContext {
 
 export interface iContexts {
   handleModalEdit: () => void;
+  isModalEditOpen: boolean;
+  logOut: () => void;
 }
