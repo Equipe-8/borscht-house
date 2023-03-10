@@ -29,7 +29,7 @@ const Header = () => {
               onClick={() => handleModalEdit()}
             />
 
-            <img src='./src/assets/nome.jpeg' alt='Logo' />
+            <img className='logo' src='./src/assets/nome.jpeg' alt='Logo' />
           </div>
           <nav className='nav' role='navigation'>
             <SearchForm />
@@ -43,15 +43,6 @@ const Header = () => {
               >
                 <MdShoppingCart size={28} />
               </button>
-              {/* //vindo do develop */}
-              {/* <button
-                type='button'
-                onClick={() => {
-                  console.log('user logout');
-                }}
-              >
-                teste
-              </button> */}
               <button
                 type='button'
                 onClick={() => {
