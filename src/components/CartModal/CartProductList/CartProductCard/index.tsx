@@ -1,7 +1,9 @@
 import { AiOutlineMinusCircle } from 'react-icons/ai';
-
-import { useContext } from 'react';
-
+import { useContext, useState } from 'react';
+import Remove from '@mui/icons-material/Remove'
+import Add from '@mui/icons-material/Add';
+import ShoppingCard from '@mui/icons-material/ShoppingCart';
+import Badge from '@mui/material/Badge';
 import {
   StyledCartProductCard,
   StyledCounterBtn,
@@ -12,7 +14,7 @@ import { StyledPriceP, StyledTitle } from '../../../../styles/typography';
 import { CartContext } from '../../../../providers/ProductContext/ProductContext';
 
 const CartProductCard = ({ product }: IPropsProductCart) => {
-  const { removeProductFromCart } = useContext(CartContext);
+  const { removeProductFromCart, increaseProductQuantity, decreaseProductQuantity } = useContext(CartContext);
 
   return (
     <StyledCartProductCard>
@@ -24,15 +26,12 @@ const CartProductCard = ({ product }: IPropsProductCart) => {
           {product.name}
           <StyledPriceP> R$ {product.price.toFixed(2)}</StyledPriceP>
           <StyledCounterDiv>
-            <StyledCounterBtn
-              type='button'
-              onClick={() => console.log('menos')}
-            >
-              -
+            <StyledCounterBtn type='button' onClick={() => decreaseProductQuantity(product)}>
+              <Remove />
             </StyledCounterBtn>
-            <span>{product.count}Qt</span>
-            <StyledCounterBtn type='button' onClick={() => console.log('mais')}>
-              +
+            <span>{product.count}</span>
+            <StyledCounterBtn type='button' onClick={() => increaseProductQuantity(product)}>
+              <Add />
             </StyledCounterBtn>
           </StyledCounterDiv>
         </StyledTitle>

@@ -11,6 +11,7 @@ const ProductCard = () => {
     <>
       {searchList.map((item) => {
         const { id, name, country, img, price } = item;
+        const itemAdd = {...item, count: 1}
 
         return (
           <StyledProductCard key={id}>
@@ -34,7 +35,7 @@ const ProductCard = () => {
                 $buttonSize='medium'
                 $buttonStyle='green'
                 className='saibaMais'
-                onClick={() => toAdd(item)}
+                onClick={() => toAdd(itemAdd)}
               >
                 Adicionar
               </StyledButton>

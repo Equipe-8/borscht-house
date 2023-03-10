@@ -12,20 +12,20 @@ const Header = () => {
   const { setShowModal } = useContext(CartContext);
 
 
-import { UpdateModal } from '../UpdateModal';
+// import { UpdateModal } from '../UpdateModal';
 
-const Header = () => {
-  console.log('oi');
-  const { handleModalEdit } = useContext(UserContext);
-  console.log(handleModalEdit);
+// const Header = () => {
+  // console.log('oi');
+  // const { handleModalEdit } = useContext(UserContext);
+  // console.log(handleModalEdit);
 
 // userUpdate
   return (
     <StyledHeader>
       <StyledContainer containerWidth={1300}>
         <div className='flexGrid'>
-// userUpdate
-          <span className='logo'>Borscht House</span>
+{/* // userUpdate */}
+          {/* <span className='logo'>Borscht House</span> */}
 
           <div className='IconeAndLogo'>
             <img
@@ -51,13 +51,14 @@ const Header = () => {
               >
                 <MdShoppingCart size={28} />
               </button>
-//vindo do develop
+{/* //vindo do develop */}
               <button
                 type='button'
                 onClick={() => {
                   console.log('user logout');
                 }}
               >
+              </button>
               <button type='button'>
                 <MdLogout size={28} />
               </button>
