@@ -21,7 +21,9 @@ const Header = () => {
               className='icone'
               src='src/assets/icone.jpeg'
               alt='Icone para alterar o endereço'
-              onClick={() => handleModalEdit()}
+              onClick={() => {
+                handleModalEdit();
+              }}
             />
 
             <img className='logo' src='./src/assets/nome.jpeg' alt='Logo' />

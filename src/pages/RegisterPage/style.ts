@@ -22,7 +22,6 @@ export const StyledRegisterPage = styled.main`
 
   .span {
     height: 80px;
-
     width: 50%;
     border-radius: 8px;
     margin-top: 25px;

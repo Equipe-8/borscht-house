@@ -4,6 +4,7 @@ import { toast } from 'react-toastify';
 import {
   ICart,
   ICartContext,
+  ICountry,
   IDefaultProviderProps,
   IProducts,
 } from './@types';
@@ -16,6 +17,7 @@ export const CartContextProvider = ({ children }: IDefaultProviderProps) => {
   const [search, setSearch] = useState('');
   const [products, setProducts] = useState<IProducts[]>([]);
   const [carts, setCarts] = useState([] as ICart[]);
+  const [country, setCountry] = useState<ICountry[]>();
   const token = localStorage.getItem('@TOKEN');
   const navigate = useNavigate();
 
@@ -49,35 +51,48 @@ export const CartContextProvider = ({ children }: IDefaultProviderProps) => {
   const toAdd = (product: ICart) => {
     const data = carts.find((cart) => cart.id === product.id);
 
-    if(data){
-      const validation = carts.map((element) => element.id === product.id ? {...element, count: element.count + 1} : element);
+    if (data) {
+      const validation = carts.map((element) =>
+        element.id === product.id
+          ? { ...element, count: element.count + 1 }
+          : element
+      );
       setCarts(validation);
       toast.success('Produto adicionado com sucesso!');
-    } else{
+    } else {
       setCarts([...carts, product]);
       toast.success('Produto adicionado com sucesso!');
     }
   };
 
   const increaseProductQuantity = (product: ICart) => {
-    const validation = carts.map((element) => element.id === product.id ? {...element, count: element.count + 1} : element);
+    const validation = carts.map((element) =>
+      element.id === product.id
+        ? { ...element, count: element.count + 1 }
+        : element
+    );
     setCarts(validation);
   };
-  
+
   const decreaseProductQuantity = (product: ICart) => {
-    const validation = carts.map((element) => element.id === product.id ? {...element, count: element.count - 1} : element);
+    const validation = carts.map((element) =>
+      element.id === product.id
+        ? { ...element, count: element.count - 1 }
+        : element
+    );
     setCarts(validation);
 
-    if(product.count === 1){
-      removeProductFromCart(product.id)
+    if (product.count === 1) {
+      removeProductFromCart(product.id);
     }
   };
 
   const totalPrice = carts.reduce(
     (accumulator, currentValue) =>
-    accumulator + (currentValue.price * currentValue.count), 0  
+      accumulator + currentValue.price * currentValue.count,
+    0
   );
-  
+
   const emptyCart = () => {
     setCarts([]);
   };
@@ -87,6 +102,21 @@ export const CartContextProvider = ({ children }: IDefaultProviderProps) => {
 
     setCarts(newCart);
   };
+
+  const allCountries = async () => {
+    try {
+      const userToken = localStorage.getItem('@TOKEN');
+      const response = await api.get('/coyntries', {
+        headers: {
+          Authorization: `Bearer ${userToken}`,
+        },
+      });
+      setCountry(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  allCountries();
 
   return (
     <CartContext.Provider
@@ -105,8 +135,11 @@ export const CartContextProvider = ({ children }: IDefaultProviderProps) => {
         carts,
         search,
         searchList,
+        allCountries,
+        country,
+        setCountry,
         increaseProductQuantity,
-        decreaseProductQuantity
+        decreaseProductQuantity,
       }}
     >
       {children}

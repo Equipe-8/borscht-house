@@ -22,7 +22,7 @@ export interface iContexts {
     address: string,
     token: string
   ) => Promise<void>;
-  user: IUser;
+  user: IUser | undefined;
   setUser: React.Dispatch<React.SetStateAction<IUser | undefined>>;
 }
 
