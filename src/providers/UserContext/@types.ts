@@ -15,10 +15,15 @@ export interface iUserContext {
 
 export interface iContexts {
   handleModalEdit: () => void;
+  isModalEditOpen: boolean;
+  logOut: () => void;
+  editUserAddress: (
+    userId: number,
+    address: string,
+    token: string
+  ) => Promise<void>;
   user: IUser | undefined;
   setUser: React.Dispatch<React.SetStateAction<IUser | undefined>>;
-  userLogin: (formData: ILoginFormValues) => Promise<void>;
-  autoLoginUser: () => Promise<void>;
 }
 
 export interface ILoginFormValues {

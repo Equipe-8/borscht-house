@@ -21,7 +21,8 @@ export const StyledSearchForm = styled.form`
     width: 100%;
     font-family: ${({ theme }) => theme.fonts.primary};
     height: 40px;
-    color: ${({ theme }) => theme.colors.gray300};
+    color: ${({ theme }) => theme.colors.primary};
+    font-weight: bold;
     background: ${({ theme }) => theme.colors.gray600};
   }
 
@@ -31,5 +32,8 @@ export const StyledSearchForm = styled.form`
 
   :has(input:focus) {
     border: 2px solid ${({ theme }) => theme.colors.primary};
+  }
+
+  .search {
   }
 `;

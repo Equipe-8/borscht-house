@@ -11,6 +11,7 @@ const ProductCard = () => {
     <>
       {searchList.map((item) => {
         const { id, name, country, img, price, description } = item;
+        const itemAdd = { ...item, count: 1 };
 
         return (
           <StyledProductCard key={id}>
@@ -33,17 +34,19 @@ const ProductCard = () => {
                   Saiba +
                 </StyledButton>
               </StyledParagraph>
-              <StyledParagraph className='price'>
-                R$ <span>{price.toFixed(2)}</span>
-              </StyledParagraph>
-              <StyledButton
-                $buttonSize='medium'
-                $buttonStyle='green'
-                className='saibaMais'
-                onClick={() => toAdd(item)}
-              >
-                Adicionar
-              </StyledButton>
+              <div className='buttonAndPrice'>
+                <div className='price'>
+                  R$ <span>{price.toFixed(2)}</span>
+                </div>
+                <StyledButton
+                  $buttonSize='medium'
+                  $buttonStyle='green'
+                  className='saibaMais'
+                  onClick={() => toAdd(itemAdd)}
+                >
+                  Adicionar
+                </StyledButton>
+              </div>
             </div>
           </StyledProductCard>
         );

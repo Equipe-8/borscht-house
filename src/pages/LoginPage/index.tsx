@@ -10,6 +10,7 @@ import {
   StyledRegisterButton,
   StyledDivMain,
 } from './style';
+
 import { FormDemands } from './LoginFormSchema';
 import { ILoginFormValues } from '../../providers/UserContext/@types';
 

@@ -6,6 +6,7 @@ declare module 'styled-components' {
       primary: string;
     };
     colors: {
+      tertiary: Interpolation<ThemedStyledProps<Omit<DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>, "ref"> & { ref?: ((instance: HTMLElement | null) => void) | RefObject<HTMLElement> | null | undefined; }, DefaultTheme>>;
       primary: string;
       secondary: string;
       gray600: string;

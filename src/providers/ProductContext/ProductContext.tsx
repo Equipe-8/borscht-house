@@ -50,13 +50,40 @@ export const CartContextProvider = ({ children }: IDefaultProviderProps) => {
 
   const toAdd = (product: ICart) => {
     const data = carts.find((cart) => cart.id === product.id);
-    const validation = products.some((element) => element.id === data?.id);
 
-    if (!validation) {
+    if (data) {
+      const validation = carts.map((element) =>
+        element.id === product.id
+          ? { ...element, count: element.count + 1 }
+          : element
+      );
+      setCarts(validation);
       toast.success('Produto adicionado com sucesso!');
-      setCarts([...carts, product]);
     } else {
-      toast.error('Produto já existente no carrinho.');
+      setCarts([...carts, product]);
+      toast.success('Produto adicionado com sucesso!');
+    }
+  };
+
+  const increaseProductQuantity = (product: ICart) => {
+    const validation = carts.map((element) =>
+      element.id === product.id
+        ? { ...element, count: element.count + 1 }
+        : element
+    );
+    setCarts(validation);
+  };
+
+  const decreaseProductQuantity = (product: ICart) => {
+    const validation = carts.map((element) =>
+      element.id === product.id
+        ? { ...element, count: element.count - 1 }
+        : element
+    );
+    setCarts(validation);
+
+    if (product.count === 1) {
+      removeProductFromCart(product.id);
     }
   };
 
@@ -111,6 +138,8 @@ export const CartContextProvider = ({ children }: IDefaultProviderProps) => {
         allCountries,
         country,
         setCountry,
+        increaseProductQuantity,
+        decreaseProductQuantity,
       }}
     >
       {children}
