@@ -23,6 +23,9 @@ export interface ICartContext {
   setShowModal: React.Dispatch<React.SetStateAction<boolean>>;
   toAdd: (product: ICart) => void;
   searchCart: (event: React.ChangeEvent | any) => void;
+  country: ICountry[] | undefined;
+  setCountry: (value: React.SetStateAction<ICountry[] | undefined>) => void;
+  allCountries: () => Promise<void>;
 }
 
 export interface IProducts {
@@ -31,8 +34,22 @@ export interface IProducts {
   img: string;
   country: string;
   price: number;
+  description: {
+    detail: string;
+    igredient: string;
+  };
 }
 
 export interface IProductsProps {
   products: IProducts;
+}
+
+export interface ICountry {
+  countryName: string;
+  countryId: number;
+  about: {
+    1: string;
+    2: string;
+    3: string;
+  };
 }

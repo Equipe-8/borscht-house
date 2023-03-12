@@ -1,8 +1,13 @@
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, Navigate, Outlet } from 'react-router-dom';
 import LoginPage from '../pages/LoginPage';
 import RegisterPage from '../pages/RegisterPage';
 import ShopPage from '../pages/ShopPage';
-import { ProtectedRoutes } from '../protectedRoutes';
+
+const ProtectedRoutes = () => {
+  const token = localStorage.getItem('userToken');
+
+  return token ? <Outlet /> : <Navigate to='/' />;
+};
 
 const Router = () => (
   <Routes>

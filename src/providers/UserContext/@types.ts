@@ -17,6 +17,8 @@ export interface iContexts {
   handleModalEdit: () => void;
   user: IUser | undefined;
   setUser: React.Dispatch<React.SetStateAction<IUser | undefined>>;
+  userLogin: (formData: ILoginFormValues) => Promise<void>;
+  autoLoginUser: () => Promise<void>;
 }
 
 export interface ILoginFormValues {

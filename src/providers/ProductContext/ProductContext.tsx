@@ -4,6 +4,7 @@ import { toast } from 'react-toastify';
 import {
   ICart,
   ICartContext,
+  ICountry,
   IDefaultProviderProps,
   IProducts,
 } from './@types';
@@ -16,6 +17,7 @@ export const CartContextProvider = ({ children }: IDefaultProviderProps) => {
   const [search, setSearch] = useState('');
   const [products, setProducts] = useState<IProducts[]>([]);
   const [carts, setCarts] = useState([] as ICart[]);
+  const [country, setCountry] = useState<ICountry[]>();
   const token = localStorage.getItem('@TOKEN');
   const navigate = useNavigate();
 
@@ -74,6 +76,21 @@ export const CartContextProvider = ({ children }: IDefaultProviderProps) => {
     setCarts(newCart);
   };
 
+  const allCountries = async () => {
+    try {
+      const userToken = localStorage.getItem('@TOKEN');
+      const response = await api.get('/coyntries', {
+        headers: {
+          Authorization: `Bearer ${userToken}`,
+        },
+      });
+      setCountry(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  allCountries();
+
   return (
     <CartContext.Provider
       value={{
@@ -91,6 +108,9 @@ export const CartContextProvider = ({ children }: IDefaultProviderProps) => {
         carts,
         search,
         searchList,
+        allCountries,
+        country,
+        setCountry,
       }}
     >
       {children}

@@ -10,7 +10,7 @@ const ProductCard = () => {
   return (
     <>
       {searchList.map((item) => {
-        const { id, name, country, img, price } = item;
+        const { id, name, country, img, price, description } = item;
 
         return (
           <StyledProductCard key={id}>
@@ -23,7 +23,13 @@ const ProductCard = () => {
               </StyledTitle>
               <StyledParagraph className='category'>
                 {country}
-                <StyledButton $buttonSize='medium' $buttonStyle='gray'>
+                <StyledButton
+                  id={id}
+                  name={name}
+                  description={description}
+                  $buttonSize='medium'
+                  $buttonStyle='gray'
+                >
                   Saiba +
                 </StyledButton>
               </StyledParagraph>
