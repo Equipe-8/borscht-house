@@ -1,4 +1,5 @@
 import { MdShoppingCart, MdLogout } from 'react-icons/md';
+
 import { useContext } from 'react';
 import SearchForm from './SearchForm';
 import { StyledHeader } from './style';
@@ -8,26 +9,24 @@ import { CartContext } from '../../providers/ProductContext/ProductContext';
 
 const Header = () => {
   const { setShowModal } = useContext(CartContext);
-  console.log('oi');
-  const { handleModalEdit } = useContext(UserContext);
-  console.log(handleModalEdit);
+
+  const { handleModalEdit, logOut } = useContext(UserContext);
 
   return (
     <StyledHeader>
       <StyledContainer containerWidth={1300}>
         <div className='flexGrid'>
-          <span className='logo'>Borscht House</span>
-
           <div className='IconeAndLogo'>
             <img
               className='icone'
               src='src/assets/icone.jpeg'
               alt='Icone para alterar o endereço'
               onClick={() => {
-                console.log(teste);
+                handleModalEdit();
               }}
             />
-            <img src='./src/assets/nome.jpeg' alt='Logo' />
+
+            <img className='logo' src='./src/assets/nome.jpeg' alt='Logo' />
           </div>
           <nav className='nav' role='navigation'>
             <SearchForm />
@@ -36,7 +35,6 @@ const Header = () => {
                 type='button'
                 onClick={() => {
                   setShowModal(true);
-                  console.log('Criar lógica');
                 }}
               >
                 <MdShoppingCart size={28} />
@@ -44,12 +42,9 @@ const Header = () => {
               <button
                 type='button'
                 onClick={() => {
-                  console.log('user logout');
+                  logOut();
                 }}
               >
-                teste
-              </button>
-              <button type='button'>
                 <MdLogout size={28} />
               </button>
             </div>

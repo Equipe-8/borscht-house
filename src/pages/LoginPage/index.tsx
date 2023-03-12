@@ -17,7 +17,7 @@ import { ILoginFormValues } from '../../providers/UserContext/@types';
 import { api } from '../../services/api';
 import { UserContext } from '../../providers/UserContext/UserContext';
 
-const { setUser } = useContext(UserContext);
+const { setUser, user } = useContext(UserContext);
 
 const LoginPage = () => {
   const {
