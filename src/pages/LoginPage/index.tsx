@@ -1,6 +1,5 @@
 import { StyledLoginPage } from './style';
 import LoginForm from '../../components/Form/LoginForm';
-import IllustrationBox from '../../components/IllustrationBox';
 
 import { StyledButtonLink } from '../../styles/button';
 import { StyledContainer, StyledGridBox } from '../../styles/grid';
@@ -27,9 +26,6 @@ const LoginPage = () => (
               Cadastrar
             </StyledButtonLink>
           </StyledGridBox>
-        </div>
-        <div className='right'>
-          <IllustrationBox />
         </div>
       </div>
     </StyledContainer>
