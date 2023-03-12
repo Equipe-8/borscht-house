@@ -9,7 +9,7 @@ const SearchForm = () => {
   return (
     <StyledSearchForm>
       <input type='text' placeholder='Digitar pesquisa' onChange={searchCart} />
-      <MdSearch />
+      <MdSearch className='search' />
     </StyledSearchForm>
   );
 };

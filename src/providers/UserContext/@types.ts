@@ -15,7 +15,14 @@ export interface iUserContext {
 
 export interface iContexts {
   handleModalEdit: () => void;
-  user: IUser | undefined;
+  isModalEditOpen: boolean;
+  logOut: () => void;
+  editUserAddress: (
+    userId: number,
+    address: string,
+    token: string
+  ) => Promise<void>;
+  user: IUser;
   setUser: React.Dispatch<React.SetStateAction<IUser | undefined>>;
 }
 

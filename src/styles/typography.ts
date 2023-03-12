@@ -62,6 +62,10 @@ export const StyledParagraph = styled.p<IStyledParagraphProps>`
   font-size: 0.875rem;
   font-weight: 400;
   line-height: 1.8;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
 
   text-align: ${({ textAlign }) => textAlign};
 
