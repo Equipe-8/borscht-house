@@ -6,7 +6,7 @@ import { toast } from 'react-toastify';
 import { StyledRegisterPage } from './style';
 import { schema } from './RegisterFormSchema/RegisterFormSchema';
 import { iFormData } from '../../providers/UserContext/@types';
-import { api } from '../../api/api';
+import { api } from '../../services/api';
 
 const RegisterPage = () => {
   const navigate = useNavigate();

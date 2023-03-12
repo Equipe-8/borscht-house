@@ -6,19 +6,18 @@ export const StyledProductCard = styled.li`
   transition: 0.3s;
   width: 306px;
   height: 350px;
+  background: ${({ theme }) => theme.colors.gray150};
 
   :has(button:hover) {
     border-color: ${({ theme }) => theme.colors.gray0};
   }
 
   .imageBox {
-    /* background: ${({ theme }) => theme.colors.gray0}; */
     display: flex;
     align-items: center;
     justify-content: center;
     img {
       width: 296px;
-      /* object-fit: contain; */
       height: 172px;
       border-radius: 8px 8px 0 0;
     }
