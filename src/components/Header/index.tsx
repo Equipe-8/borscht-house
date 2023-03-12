@@ -1,7 +1,3 @@
-/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-/* eslint-disable react/jsx-no-comment-textnodes */
 import { MdShoppingCart, MdLogout } from 'react-icons/md';
 
 import { useContext } from 'react';
@@ -10,7 +6,6 @@ import { StyledHeader } from './style';
 import { UserContext } from '../../providers/UserContext/UserContext';
 import { StyledContainer } from '../../styles/grid';
 import { CartContext } from '../../providers/ProductContext/ProductContext';
-import { UpdateModal } from '../UpdateModal';
 
 const Header = () => {
   const { setShowModal } = useContext(CartContext);
@@ -38,7 +33,6 @@ const Header = () => {
                 type='button'
                 onClick={() => {
                   setShowModal(true);
-                  console.log('Criar lógica');
                 }}
               >
                 <MdShoppingCart size={28} />

@@ -21,8 +21,10 @@ export const StyledHeader = styled.header`
     }
 
     .icone {
-      width: 51px;
-      height: 51px;
+      width: 31px;
+      height: 31px;
+      border-radius: 100%;
+      margin-right: 15px;
     }
 
     .nav {

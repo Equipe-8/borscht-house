@@ -10,7 +10,7 @@ export interface ICart extends IProducts {
 
 export interface ICartContext {
   products: IProducts[];
-  carts: IProducts[];
+  carts: ICart[];
   search: string;
   searchList: IProducts[];
   showModal: boolean;
@@ -19,10 +19,12 @@ export interface ICartContext {
   setProducts: React.Dispatch<React.SetStateAction<IProducts[]>>;
   setCarts: React.Dispatch<React.SetStateAction<ICart[]>>;
   setSearch: React.Dispatch<React.SetStateAction<string>>;
-  removeProductFromCart: (currentId: number) => void;
   setShowModal: React.Dispatch<React.SetStateAction<boolean>>;
+  removeProductFromCart: (currentId: number) => void;
   toAdd: (product: ICart) => void;
   searchCart: (event: React.ChangeEvent | any) => void;
+  increaseProductQuantity: (product: ICart) => void;
+  decreaseProductQuantity: (product: ICart) => void;
 }
 
 export interface IProducts {
