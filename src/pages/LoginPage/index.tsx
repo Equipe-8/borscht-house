@@ -14,7 +14,7 @@ import { ILoginFormValues } from '../../providers/UserContext/@types';
 import { UserContext } from '../../providers/UserContext/UserContext';
 
 const LoginPage = () => {
-  const { autoLoginUser, userLogin } = useContext(UserContext);
+  const { userLogin } = useContext(UserContext);
 
   const {
     handleSubmit,
@@ -23,10 +23,6 @@ const LoginPage = () => {
   } = useForm<ILoginFormValues>({
     resolver: yupResolver(FormDemands),
   });
-
-  useEffect(() => {
-    autoLoginUser();
-  }, []);
 
   const submit = async (data: ILoginFormValues) => {
     userLogin(data);

@@ -25,6 +25,7 @@ const InfoModal = () => {
   const countryInfo = country?.find(
     (info) => info.countryName === selectInfo?.country
   );
+console.log(countryInfo);
 
   const close = () => {
     setShowModalInfo(false);
@@ -48,6 +49,7 @@ const InfoModal = () => {
             </StyledCloseButton>
           </header>
           <StyledContainer>
+            <img src={countryInfo?.countryFlag} alt={countryInfo?.countryName}/>
             <StyledSpanDish>
               <p>
                 <strong>Detalhes: </strong>

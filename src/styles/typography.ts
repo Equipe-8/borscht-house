@@ -15,7 +15,6 @@ export const StyledTitle = styled(BaseTitle)<IStyledTitleProps>`
   width: 100%;
 
   font-family: ${({ theme }) => theme.fonts.primary};
-  font-family: ${({ theme }) => theme.fonts.secundary};
   line-height: 1.6;
 
   display: flex;

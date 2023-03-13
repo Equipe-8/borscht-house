@@ -1,17 +1,17 @@
-import { createContext, useState } from 'react';
+import { createContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { iUserContext, iContexts, IUser, ILoginFormValues } from './@types';
 import { api } from '../../services/api';
 
-export const UserContext = createContext({} as iContexts);
+export const UserContext = createContext({} as iUserContext);
 
-export const UserContextProvider = ({ children }: iUserContext) => {
+export const UserContextProvider = ({ children }: iContexts) => {
   const [isModalEditOpen, setIsModalEditOpen] = useState(false);
 
   const navigate = useNavigate();
 
-  const [user, setUser] = useState<IUser | undefined>();
+  const [user, setUser] = useState<IUser>({} as IUser);
 
   const handleModalEdit = () => {
     setIsModalEditOpen(!isModalEditOpen);
@@ -20,7 +20,7 @@ export const UserContextProvider = ({ children }: iUserContext) => {
   const editUserAddress = async (
     userId: number,
     address: string,
-    token: string
+    token: string | null
   ) => {
     try {
       const response = await api.patch(`users/${userId}`, address, {
@@ -49,13 +49,19 @@ export const UserContextProvider = ({ children }: iUserContext) => {
             Authorization: `Bearer ${userToken}`,
           },
         });
-        setUser(response.data.user);
+        setUser(response.data);
+        console.log(response.data);
+        
         navigate('/shop');
       } catch (error) {
         console.log(error);
       }
     }
   };
+
+  useEffect(() => {
+    autoLoginUser();
+  }, []);
 
   const userLogin = async (formData: ILoginFormValues) => {
     try {
