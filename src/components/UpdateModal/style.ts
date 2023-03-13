@@ -33,10 +33,11 @@ export const StyledModal = styled.main`
     font-weight: 400;
   }
 
-  header > span {
+  header > button {
     cursor: pointer;
     color: ${({ theme }) => theme.colors.white};
     font-size: 18px;
+    width: 50px;
   }
 
   .address {
@@ -74,9 +75,10 @@ export const StyledModal = styled.main`
   button {
     height: 50px;
     width: 280px;
-    border-radius: 4px;
+    border-radius: 8px;
     background: none;
     border: 2px solid ${({ theme }) => theme.colors.secondary};
     color: ${({ theme }) => theme.colors.secondary};
+    font-family: ${({ theme }) => theme.fonts.primary};
   }
 `;

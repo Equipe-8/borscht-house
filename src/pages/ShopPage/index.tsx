@@ -7,17 +7,19 @@ import { UpdateModal } from '../../components/UpdateModal';
 import { StyledContainer } from '../../styles/grid';
 import { CartContext } from '../../providers/ProductContext/ProductContext';
 import InfoModal from '../../components/ProductList/ProductCard/ProductCardInfoModal';
+import { UserContext } from '../../providers/UserContext/UserContext';
 
 const ShopPage = () => {
   const { showModal, showModalInfo } = useContext(CartContext);
+  const { isModalEditOpen } = useContext(UserContext);
 
   return (
     <StyledShopPage>
-      {showModal ? <CartModal /> : null}
-      {showModalInfo ? <InfoModal /> : null}
+      {showModal && <CartModal />}
+      {showModalInfo && <InfoModal />}
       <Header />
       <main>
-        <UpdateModal />
+        {isModalEditOpen && <UpdateModal />}
         <StyledContainer containerWidth={1300}>
           <ProductList />
         </StyledContainer>

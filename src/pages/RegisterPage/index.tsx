@@ -28,7 +28,7 @@ const RegisterPage = () => {
       toast.success('Cadastro realizado com sucesso!');
       navigate('/');
     } catch (error: any) {
-      toast.error(error.response.data);
+      toast.error(error);
     }
   };
 

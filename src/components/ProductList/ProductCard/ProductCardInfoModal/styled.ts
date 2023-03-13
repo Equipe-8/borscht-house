@@ -24,11 +24,7 @@ export const StyledModal = styled.main`
     background-color: white;
     height: 374px;
     width: 639px;
-    overflow-x: auto;
     border-radius: 5px;
-    ::-webkit-scrollbar {
-      display: none;
-    }
   }
 
   header {
@@ -40,6 +36,33 @@ export const StyledModal = styled.main`
     align-items: center;
     h2 {
       color: ${({ theme }) => theme.colors.white};
+    }
+  }
+
+  .loading__container {
+    width: 100%;
+    height: 300px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .loading {
+    width: 40px;
+    height: 40px;
+    border: 5px solid;
+    border-color: #0084ff #e6e6e6 #e6e6e6;
+    border-radius: 50%;
+    animation: loading 1.5s infinite;
+  }
+
+  @keyframes loading {
+    0%{
+      transform: rotate(0deg);
+    }
+    100%{
+      transform: rotate(360deg);
     }
   }
 `;
@@ -61,6 +84,11 @@ export const StyledContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 20px;
+  height: 290px;
+  overflow: auto;
+  ::-webkit-scrollbar {
+      display: none;
+    }
 `;
 
 export const StyledSpanDish = styled.span`

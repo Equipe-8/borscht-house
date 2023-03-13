@@ -23,13 +23,22 @@ export const UserContextProvider = ({ children }: iContexts) => {
     token: string | null
   ) => {
     try {
-      const response = await api.patch(`users/${userId}`, {address:addressst}, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const response = await toast.promise(
+        api.patch(
+          `users/${userId}`,
+          { address: addressst },
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        ),
+        {
+          pending: 'Carregando',
+          success: 'Endereço atualizado com sucesso!',
+        }
+      );
       setUser(response.data);
-      toast.success('Endereço atualizado com sucesso!');
       handleModalEdit();
     } catch (error) {
       console.log(error);
@@ -66,12 +75,14 @@ export const UserContextProvider = ({ children }: iContexts) => {
 
   const userLogin = async (formData: ILoginFormValues) => {
     try {
-      const response = await api.post('/login', formData);
+      const response = await toast.promise(api.post('/login', formData), {
+        pending: 'Carregando',
+        success: 'Login realizado com sucesso!',
+      });
       localStorage.setItem('@TOKEN', `${response.data.accessToken}`);
       localStorage.setItem('userID', `${response.data.user.id}`);
       setUser(response.data.user);
       navigate('/shop');
-      toast.success('Login realizado com sucesso!');
     } catch (error) {
       toast.error('Usuário ou senha inválidos');
     }

@@ -46,11 +46,12 @@ export const StyledLoginPage = styled.main`
 export const StyledDivLogin = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 20px;
   align-items: center;
+  gap: 15px;
   p {
     font-weight: 600;
-    font-size: 22px;
+    font-size: 18px;
+    font-family: ${({ theme}) => theme.fonts.primary}
   }
 `;
 
@@ -76,7 +77,6 @@ export const StyledDivMain = styled.div`
       align-items: center;
       justify-content: center;
       text-align: center;
-      gap: 20px;
     }
   }
 `;
@@ -86,7 +86,9 @@ export const StyledLoginButton = styled.button`
   width: 100%;
   border-radius: 8px;
   background-color: ${({ theme }) => theme.colors.tertiary};
+  font-family: ${({ theme}) => theme.fonts.primary};
   font-weight: 600;
+  font-size: 16px;
   transition-duration: 0.8s;
   transition-property: ${({ theme }) => theme.colors.tertiary};
   :hover {
@@ -96,7 +98,7 @@ export const StyledLoginButton = styled.button`
   @media (min-width: 769px) {
     width: 300px;
     font-size: 18px;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
   }
 `;
 
@@ -105,7 +107,9 @@ export const StyledRegisterButton = styled.button`
   width: 100%;
   border-radius: 8px;
   background-color: ${({ theme }) => theme.colors.gray300};
+  font-family: ${({ theme}) => theme.fonts.primary};
   font-weight: 600;
+  font-size: 16px;
   transition-duration: 0.8s;
   transition-property: ${({ theme }) => theme.colors.tertiary};
   :hover {
@@ -115,6 +119,6 @@ export const StyledRegisterButton = styled.button`
   @media (min-width: 769px) {
     width: 300px;
     font-size: 18px;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
   }
 `;

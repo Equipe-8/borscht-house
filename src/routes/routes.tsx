@@ -2,6 +2,7 @@ import { Route, Routes, Navigate, Outlet } from 'react-router-dom';
 import LoginPage from '../pages/LoginPage';
 import RegisterPage from '../pages/RegisterPage';
 import ShopPage from '../pages/ShopPage';
+import { CartContextProvider } from '../providers/ProductContext/ProductContext';
 
 const ProtectedRoutes = () => {
   const token = localStorage.getItem('@TOKEN');
@@ -13,7 +14,14 @@ const Router = () => (
     <Route path='/' element={<LoginPage />} />
     <Route path='/register' element={<RegisterPage />} />
     <Route path='/' element={<ProtectedRoutes />}>
-      <Route path='/shop' element={<ShopPage />} />
+      <Route
+        path='/shop'
+        element={
+          <CartContextProvider>
+            <ShopPage />
+          </CartContextProvider>
+        }
+      />
     </Route>
   </Routes>
 );
