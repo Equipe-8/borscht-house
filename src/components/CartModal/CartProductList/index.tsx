@@ -1,13 +1,13 @@
 import { useContext } from 'react';
+import { toast } from 'react-toastify';
 import CartProductCard from './CartProductCard';
-
 import { StyledBtns, StyledCartProductList } from './style';
 import { StyledButton } from '../../../styles/button';
 import { StyledParagraph } from '../../../styles/typography';
 import { CartContext } from '../../../providers/ProductContext/ProductContext';
 
 const CartProductList = () => {
-  const { carts, totalPrice, emptyCart } = useContext(CartContext);
+  const { carts, totalPrice, emptyCart, setShowModal } = useContext(CartContext);
 
   return (
     <StyledCartProductList>
@@ -27,7 +27,8 @@ const CartProductList = () => {
       <StyledBtns>
         <StyledButton
           onClick={() => {
-            console.log('Finalizar compras');
+            setShowModal(false)
+            toast.success('Compra finalizada com sucesso!')
           }}
           $buttonSize='default'
           $buttonStyle='green'
@@ -37,6 +38,7 @@ const CartProductList = () => {
         <StyledButton
           onClick={() => {
             emptyCart();
+            setShowModal(false)
           }}
           $buttonSize='default'
           $buttonStyle='gray'

@@ -38,6 +38,7 @@ console.log(countryInfo);
         <section>
           <header>
             <h2>{selectInfo?.name}</h2>
+            <img src={countryInfo?.countryFlag} alt={countryInfo?.countryName}/>
             <StyledCloseButton
               type='button'
               aria-label='Fechar'
@@ -49,7 +50,6 @@ console.log(countryInfo);
             </StyledCloseButton>
           </header>
           <StyledContainer>
-            <img src={countryInfo?.countryFlag} alt={countryInfo?.countryName}/>
             <StyledSpanDish>
               <p>
                 <strong>Detalhes: </strong>
