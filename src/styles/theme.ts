@@ -1,16 +1,18 @@
 export const mainTheme = {
   fonts: {
     primary: 'Inter',
+    secundary: 'Italiano',
   },
   colors: {
-    primary: '#27AE60',
-    secondary: '#EB5757',
-    gray600: '#333333',
-    gray300: '#828282',
-    gray150: '#BDBDBD',
-    gray100: '#E0E0E0',
-    gray0: '#F5F5F5',
-    white: '#FFFFFF',
+    primary: '#59030B',
+    secondary: '#800419', 
+    tertiary: '#A1C84B',
+    gray600: '#D9CCC1', 
+    gray300: '#BFB3A8', 
+    gray150: '#D9D9D9', 
+    gray100: '#000000', 
+    gray0: '#D9042B', 
+    white: '#FFFFFF', 
     feedback: {
       negative: '#E60000',
       warning: '#FFCD07',

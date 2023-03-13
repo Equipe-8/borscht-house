@@ -1,39 +1,54 @@
-import { StyledLoginPage } from './style';
-import LoginForm from '../../components/Form/LoginForm';
-import IllustrationBox from '../../components/IllustrationBox';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { useForm } from 'react-hook-form';
+import { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
+import {
+  StyledLoginPage,
+  StyledDivLogin,
+  StyledLoginButton,
+  StyledRegisterButton,
+  StyledDivMain,
+} from './style';
+import { FormDemands } from './LoginFormSchema';
+import { ILoginFormValues } from '../../providers/UserContext/@types';
+import { UserContext } from '../../providers/UserContext/UserContext';
 
-import { StyledButtonLink } from '../../styles/button';
-import { StyledContainer, StyledGridBox } from '../../styles/grid';
-import { StyledParagraph, StyledTitle } from '../../styles/typography';
+const LoginPage = () => {
+  const { userLogin } = useContext(UserContext);
 
-const LoginPage = () => (
-  <StyledLoginPage>
-    <StyledContainer>
-      <div className='flexGrid'>
-        <div className='left'>
-          <StyledGridBox className='formBox'>
-            <StyledTitle tag='h2' $fontSize='three'>
-              Login
-            </StyledTitle>
-            <LoginForm />
-            <StyledParagraph textAlign='center' fontColor='gray'>
-              Crie sua conta para saborear muitas delícias e matar sua fome!
-            </StyledParagraph>
-            <StyledButtonLink
-              to='/register'
-              $buttonSize='default'
-              $buttonStyle='gray'
-            >
-              Cadastrar
-            </StyledButtonLink>
-          </StyledGridBox>
-        </div>
-        <div className='right'>
-          <IllustrationBox />
-        </div>
-      </div>
-    </StyledContainer>
-  </StyledLoginPage>
-);
+  const {
+    handleSubmit,
+    register,
+    formState: { errors },
+  } = useForm<ILoginFormValues>({
+    resolver: yupResolver(FormDemands),
+  });
+
+  const submit = async (data: ILoginFormValues) => {
+    userLogin(data);
+  };
+  const navigate = useNavigate();
+  const toRegister = () => navigate('/register');
+
+  return (
+    <StyledLoginPage>
+      <StyledDivMain>
+        <form action='' onSubmit={handleSubmit(submit)}>
+          <input type='text' placeholder='Email' {...register('email')} />
+          <p>{errors.email?.message}</p>
+          <input type='password' placeholder='Senha' {...register('password')} />
+          <p>{errors.password?.message}</p>
+          <StyledDivLogin>
+            <StyledLoginButton type='submit'>Entrar</StyledLoginButton>
+            <p>ou</p>
+            <StyledRegisterButton type='submit' onClick={toRegister}>
+              Cadastrar-se
+            </StyledRegisterButton>
+          </StyledDivLogin>
+        </form>
+      </StyledDivMain>
+    </StyledLoginPage>
+  );
+};
 
 export default LoginPage;

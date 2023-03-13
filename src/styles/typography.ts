@@ -17,6 +17,10 @@ export const StyledTitle = styled(BaseTitle)<IStyledTitleProps>`
   font-family: ${({ theme }) => theme.fonts.primary};
   line-height: 1.6;
 
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
   text-align: ${({ textAlign }) => textAlign};
 
   ${({ $fontSize }) => {
@@ -35,7 +39,7 @@ export const StyledTitle = styled(BaseTitle)<IStyledTitleProps>`
       case 'three':
         return css`
           font-size: 1.15rem;
-          font-weight: 700;
+          font-weight: 600;
         `;
 
       case 'four':
@@ -47,11 +51,20 @@ export const StyledTitle = styled(BaseTitle)<IStyledTitleProps>`
   }}
 `;
 
+export const StyledPriceP = styled.span`
+  color: #828282;
+  font-size: 0.8rem;
+`;
+
 export const StyledParagraph = styled.p<IStyledParagraphProps>`
   font-family: ${({ theme }) => theme.fonts.primary};
   font-size: 0.875rem;
   font-weight: 400;
   line-height: 1.8;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
 
   text-align: ${({ textAlign }) => textAlign};
 
@@ -67,7 +80,7 @@ export const StyledParagraph = styled.p<IStyledParagraphProps>`
         `;
       default:
         return css`
-          color: ${theme.colors.gray600};
+          color: ${theme.colors.gray100};
         `;
     }
   }}

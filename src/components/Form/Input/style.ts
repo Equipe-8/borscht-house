@@ -1,8 +1,8 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const StyledFieldset = styled.fieldset`
-   width: 100%;
-   display: flex;
-   flex-direction: column;
-   gap: 8px;
+  height: 80px;
+  width: 450px;
+  border-radius: 8px;
+  background-color: #d9ccc1a3;
 `;
