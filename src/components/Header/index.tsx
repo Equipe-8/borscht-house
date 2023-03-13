@@ -25,12 +25,12 @@ const Header = () => {
             >
               <img
                 className='icone'
-                src='src/assets/icone.jpeg'
+                src='src/assets/icone.png'
                 alt='Icone para alterar o endereço'
               />
             </button>
 
-            <img className='logo' src='./src/assets/nome.jpeg' alt='Logo' />
+            <img className='logo' src='./src/assets/nome.png' alt='Logo' />
           </div>
           <nav className='nav' role='navigation'>
             <SearchForm />
