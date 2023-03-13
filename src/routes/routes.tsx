@@ -4,8 +4,7 @@ import RegisterPage from '../pages/RegisterPage';
 import ShopPage from '../pages/ShopPage';
 
 const ProtectedRoutes = () => {
-  const token = localStorage.getItem('userToken');
-
+  const token = localStorage.getItem('@TOKEN');
   return token ? <Outlet /> : <Navigate to='/' />;
 };
 

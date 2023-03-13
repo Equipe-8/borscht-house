@@ -6,13 +6,15 @@ import ProductList from '../../components/ProductList';
 import { UpdateModal } from '../../components/UpdateModal';
 import { StyledContainer } from '../../styles/grid';
 import { CartContext } from '../../providers/ProductContext/ProductContext';
+import InfoModal from '../../components/ProductList/ProductCard/ProductCardInfoModal';
 
 const ShopPage = () => {
-  const { showModal } = useContext(CartContext);
+  const { showModal, showModalInfo } = useContext(CartContext);
 
   return (
     <StyledShopPage>
       {showModal ? <CartModal /> : null}
+      {showModalInfo ? <InfoModal /> : null}
       <Header />
       <main>
         <UpdateModal />

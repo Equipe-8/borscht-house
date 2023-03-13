@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { StyledRegisterPage } from './style';
+import { StyledDivButtons, StyledRegisterPage } from './style';
 import { schema } from './RegisterFormSchema/RegisterFormSchema';
 import { iFormData } from '../../providers/UserContext/@types';
 import { api } from '../../services/api';
@@ -17,6 +17,10 @@ const RegisterPage = () => {
   } = useForm<iFormData>({
     resolver: yupResolver(schema),
   });
+
+  const login = () => {
+    navigate('/');
+  };
 
   const onSubmitRegister = async (data: iFormData) => {
     try {
@@ -63,8 +67,12 @@ const RegisterPage = () => {
             {...register('confirmPassword')}
           />
           <p>{errors.confirmPassword?.message}</p>
-
           <button type='submit'>Cadastrar</button>
+          <button type='submit' onClick={login}>
+            {/* <StyledDivButtons> */}
+            Voltar
+          </button>
+          {/* </StyledDivButtons> */}
         </form>
       </div>
     </StyledRegisterPage>

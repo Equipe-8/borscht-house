@@ -24,6 +24,8 @@ export interface iContexts {
   ) => Promise<void>;
   user: IUser | undefined;
   setUser: React.Dispatch<React.SetStateAction<IUser | undefined>>;
+  autoLoginUser: () => Promise<void>;
+  userLogin: (formData: ILoginFormValues) => Promise<void>;
 }
 
 export interface ILoginFormValues {
