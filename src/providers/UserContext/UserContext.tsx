@@ -19,15 +19,18 @@ export const UserContextProvider = ({ children }: iContexts) => {
 
   const editUserAddress = async (
     userId: number,
-    address: string,
+    addressst: string,
     token: string | null
   ) => {
     try {
-      const response = await api.patch(`users/${userId}`, address, {
+      const response = await api.patch(`users/${userId}`, {address:addressst}, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       });
+      setUser(response.data);
+      toast.success('Endereço atualizado com sucesso!');
+      handleModalEdit();
     } catch (error) {
       console.log(error);
     }
@@ -50,8 +53,6 @@ export const UserContextProvider = ({ children }: iContexts) => {
           },
         });
         setUser(response.data);
-        console.log(response.data);
-        
         navigate('/shop');
       } catch (error) {
         console.log(error);

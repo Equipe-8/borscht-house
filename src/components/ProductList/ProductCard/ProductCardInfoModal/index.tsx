@@ -9,15 +9,6 @@ import {
 } from './styled';
 import { CartContext } from '../../../../providers/ProductContext/ProductContext';
 
-interface IInfoModal {
-  countryName: string;
-  name: string;
-  description: {
-    detail: string;
-    ingredient: string;
-  };
-}
-
 const InfoModal = () => {
   const { setShowModalInfo, country, selectInfo, setSelectInfo } =
     useContext(CartContext);
@@ -25,7 +16,6 @@ const InfoModal = () => {
   const countryInfo = country?.find(
     (info) => info.countryName === selectInfo?.country
   );
-console.log(countryInfo);
 
   const close = () => {
     setShowModalInfo(false);

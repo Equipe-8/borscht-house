@@ -36,7 +36,7 @@ const LoginPage = () => {
         <form action='' onSubmit={handleSubmit(submit)}>
           <input type='text' placeholder='Email' {...register('email')} />
           <p>{errors.email?.message}</p>
-          <input type='text' placeholder='Senha' {...register('password')} />
+          <input type='password' placeholder='Senha' {...register('password')} />
           <p>{errors.password?.message}</p>
           <StyledDivLogin>
             <StyledLoginButton type='submit'>Entrar</StyledLoginButton>

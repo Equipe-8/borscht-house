@@ -25,6 +25,7 @@ export const StyledRegisterPage = styled.main`
     width: 50%;
     border-radius: 8px;
     margin-top: 25px;
+    text-align: center;
   }
 
   .insideSpan {
@@ -48,23 +49,24 @@ export const StyledRegisterPage = styled.main`
   }
 
   form {
-    height: 361px;
-    margin-top: 300px;
+    height: max-content;
+    margin-top: 150px;
     margin-left: 17px;
     width: 300px;
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 7px;
     padding: 20px;
     border-radius: 10px;
-    background-color: rgba(217, 217, 217, 0.4);
+    background-color: rgba(217, 217, 217, 0.6);
     @media (min-width: 769px) {
-      height: 500px;
+      height: max-content;
       width: 400px;
       margin-top: 250px;
       margin-left: 150px;
       display: flex;
       flex-direction: column;
+      align-items: center;
       gap: 1px;
       padding: 20px;
     }
@@ -73,7 +75,7 @@ export const StyledRegisterPage = styled.main`
     height: 50px;
     width: 100%;
     border-radius: 8px;
-    background-color: rgba(217, 204, 193, 0.9);
+    background-color: white;
     padding-left: 16px;
     font-weight: 600;
     border: 1px solid rgb(217, 204, 193);
@@ -178,11 +180,22 @@ export const StyledRegisterPage = styled.main`
 
     button {
       height: 50px;
-      width: 100%;
+      width: 300px;
       border-radius: 8px;
       background-color: ${({ theme }) => theme.colors.tertiary};
       font-size: 16px;
       font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .voltar {
+      height: 50px;
+      width: 300px;
+      border-radius: 8px;
+      background-color: ${({ theme }) => theme.colors.gray300};
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 10px;
     }
   }
 `;

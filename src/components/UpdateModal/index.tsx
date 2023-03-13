@@ -6,8 +6,7 @@ import { StyledModal } from './style';
 import { UserContext } from '../../providers/UserContext/UserContext';
 
 export const UpdateModal = () => {
-  const { handleModalEdit, isModalEditOpen, user, editUserAddress } =
-    useContext(UserContext);
+  const { handleModalEdit, isModalEditOpen, user, editUserAddress } = useContext(UserContext);
   const [address, setAddress] = useState('');
   
   const handleAddressChange = (e: any) => {
@@ -37,7 +36,7 @@ export const UpdateModal = () => {
               <p>{user.address}</p>
             </div>
             <form onSubmit={(event: FormEvent<HTMLFormElement>) => {
-               setAddress(event.currentTarget.address.value.toString())
+              setAddress(event.currentTarget.address.value.toString())
               handleSubmit(event)
             }}>
               <label htmlFor='address'>
