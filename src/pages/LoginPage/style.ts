@@ -9,7 +9,11 @@ export const StyledLoginPage = styled.main`
   background-position-x: -270px;
   overflow-y: hidden;
 
-  @media (min-width: 500px) {
+  @media (min-width: 706px) {
+    background-position-x: -210px;
+  }
+
+  @media (min-width: 769px) {
     background-size: cover;
     background-position-x: 0;
   }
@@ -18,16 +22,21 @@ export const StyledLoginPage = styled.main`
     height: 50px;
     width: 100%;
     border-radius: 8px;
-    background: ${({ theme }) => theme.colors.gray600};
-    opacity: 64%;
+    background-color: rgba(217, 204, 193, 0.9);
     padding-left: 16px;
     font-weight: 600;
-    @media (min-width: 500px) {
-      height: 70px;
-      width: 250px;
+    border: 1px solid rgb(217, 204, 193);
+    transition: border-width 0.2s linear;
+    margin: 0.5em;
+    :hover {
+      border: 2px solid black;
+    }
+    @media (min-width: 769px) {
+      height: 60px;
+      width: 300px;
     }
 
-    input::placeholder {
+    ::placeholder {
       color: ${({ theme }) => theme.colors.secondary};
       font-weight: 600;
     }
@@ -49,19 +58,24 @@ export const StyledDivMain = styled.div`
   height: 100vh;
 
   form {
-    height: 100vh;
-    margin-top: 328px;
-    margin-left: -4px;
-    width: 60%;
+    height: 361px;
+    margin-top: 300px;
+    margin-left: 17px;
+    width: 300px;
     display: flex;
     flex-direction: column;
     gap: 12px;
     padding: 20px;
-    @media (min-width: 500px) {
-      width: 500px;
-      margin-left: 30px;
-      margin-top: 285px;
-      align-items: flex-start;
+    border-radius: 10px;
+    background-color: rgba(217, 217, 217, 0.4);
+    @media (min-width: 769px) {
+      height: 500px;
+      width: 400px;
+      margin-left: 100px;
+      margin-top: 335px;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
     }
   }
 `;
@@ -72,8 +86,16 @@ export const StyledLoginButton = styled.button`
   border-radius: 8px;
   background-color: ${({ theme }) => theme.colors.tertiary};
   font-weight: 600;
-  @media (min-width: 500px) {
-    width: 250px;
+  transition-duration: 0.8s;
+  transition-property: ${({ theme }) => theme.colors.tertiary};
+  :hover {
+    background-color: ${({ theme }) => theme.colors.primary};
+    color: ${({ theme }) => theme.colors.white};
+  }
+  @media (min-width: 769px) {
+    width: 300px;
+    font-size: 18px;
+    letter-spacing: 2px;
   }
 `;
 
@@ -83,7 +105,15 @@ export const StyledRegisterButton = styled.button`
   border-radius: 8px;
   background-color: ${({ theme }) => theme.colors.gray300};
   font-weight: 600;
-  @media (min-width: 500px) {
-    width: 250px;
+  transition-duration: 0.8s;
+  transition-property: ${({ theme }) => theme.colors.tertiary};
+  :hover {
+    background-color: ${({ theme }) => theme.colors.primary};
+    color: ${({ theme }) => theme.colors.white};
+  }
+  @media (min-width: 769px) {
+    width: 300px;
+    font-size: 18px;
+    letter-spacing: 2px;
   }
 `;

@@ -1,43 +1,82 @@
 import { MdClose } from 'react-icons/md';
 import { useContext } from 'react';
+import {
+  StyledCloseButton,
+  StyledContainer,
+  StyledModal,
+  StyledSpanCuriosity,
+  StyledSpanDish,
+} from './styled';
 import { CartContext } from '../../../../providers/ProductContext/ProductContext';
 
+interface IInfoModal {
+  countryName: string;
+  name: string;
+  description: {
+    detail: string;
+    ingredient: string;
+  };
+}
 
-const InfoModal = ({ id, name, description } ) => {
-    const { setShowModal, country } = useContext(CartContext);
-    
+const InfoModal = () => {
+  const { setShowModalInfo, country, selectInfo, setSelectInfo } =
+    useContext(CartContext);
+
+  const countryInfo = country?.find(
+    (info) => info.countryName === selectInfo?.country
+  );
+
+  const close = () => {
+    setShowModalInfo(false);
+    setSelectInfo(undefined);
+  };
+
   return (
     <dialog>
-    <header>
-  <p>{name}</p>
-  <button
-    type='button'
-    aria-label='Fechar'
-    onClick={() => {
-        setShowModal(false);
-      }}
-      >
-    <MdClose size={21} />
-  </button>
-</header>
-
-
-      {country?.map((info) => info.countryId === id) ? (<>
-      console.log(info)
-          <p>{description.detail}</p>
-          <p>{description.ingredient}</p>
-          <div>
-              <p>{info.about.1}</p>
-              <p>{info.about.2}</p>
-              <p>{info.about.3}</p>
-          </div>
-</>
-      )
-           : <p></p>}
-
-<div>Curiosidades do país</div>
-</dialog>
-  )
+      <StyledModal>
+        <section>
+          <header>
+            <h2>{selectInfo?.name}</h2>
+            <StyledCloseButton
+              type='button'
+              aria-label='Fechar'
+              onClick={() => {
+                close();
+              }}
+            >
+              <MdClose size={21} />
+            </StyledCloseButton>
+          </header>
+          <StyledContainer>
+            <StyledSpanDish>
+              <p>
+                <strong>Detalhes: </strong>
+                {selectInfo?.description.detail}
+              </p>
+              <p>
+                <strong>Igredientes: </strong>
+                {selectInfo?.description.ingredient}
+              </p>
+            </StyledSpanDish>
+            <StyledSpanCuriosity>
+              <p>
+                <strong>Curiosidades</strong>
+              </p>
+              <p>
+                <strong>1:</strong> {countryInfo?.about.fact_1}
+              </p>
+              <p>
+                <strong>2:</strong> {countryInfo?.about.fact_2}
+              </p>
+              <p>
+                <strong>3:</strong> {countryInfo?.about.fact_3}
+              </p>
+            </StyledSpanCuriosity>
+          </StyledContainer>
+        </section>
+      </StyledModal>
+    </dialog>
+  );
 };
 
 export default InfoModal;

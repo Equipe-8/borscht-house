@@ -48,27 +48,49 @@ export const StyledRegisterPage = styled.main`
   }
 
   form {
-    margin-top: 30px;
-    margin-left: 25px;
-    width: 60%;
+    height: 361px;
+    margin-top: 300px;
+    margin-left: 17px;
+    width: 300px;
     display: flex;
     flex-direction: column;
     gap: 12px;
     padding: 20px;
+    border-radius: 10px;
+    background-color: rgba(217, 217, 217, 0.4);
+    @media (min-width: 769px) {
+      height: 500px;
+      width: 400px;
+      margin-top: 250px;
+      margin-left: 150px;
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      padding: 20px;
+    }
   }
   input {
     height: 50px;
     width: 100%;
     border-radius: 8px;
-    background: ${({ theme }) => theme.colors.gray600};
-    opacity: 64%;
+    background-color: rgba(217, 204, 193, 0.9);
     padding-left: 16px;
     font-weight: 600;
-  }
+    border: 1px solid rgb(217, 204, 193);
+    transition: border-width 0.2s linear;
+    margin: 0.5em;
+    :hover {
+      border: 2px solid black;
+    }
+    @media (min-width: 769px) {
+      height: 60px;
+      width: 300px;
+    }
 
-  input::placeholder {
-    color: ${({ theme }) => theme.colors.secondary};
-    font-weight: 600;
+    ::placeholder {
+      color: ${({ theme }) => theme.colors.secondary};
+      font-weight: 600;
+    }
   }
 
   h1 {
@@ -86,9 +108,20 @@ export const StyledRegisterPage = styled.main`
     border-radius: 8px;
     background-color: ${({ theme }) => theme.colors.tertiary};
     font-weight: 600;
+    transition-duration: 0.8s;
+    transition-property: ${({ theme }) => theme.colors.tertiary};
+    :hover {
+      background-color: ${({ theme }) => theme.colors.primary};
+      color: ${({ theme }) => theme.colors.white};
+    }
+    @media (min-width: 769px) {
+      width: 300px;
+      font-size: 18px;
+      letter-spacing: 2px;
+    }
   }
 
-  @media (min-width: 500px) {
+  @media (min-width: 769px) {
     display: flex;
     flex-direction: row-reverse;
     min-height: 100vh;
@@ -134,32 +167,6 @@ export const StyledRegisterPage = styled.main`
       width: 50%;
     }
 
-    form {
-      margin-top: 114px;
-      margin-left: 25px;
-      width: 73%;
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
-      padding: 20px;
-    }
-    input {
-      height: 50px;
-      width: 100%;
-      border-radius: 8px;
-      background-color: ${({ theme }) => theme.colors.gray600};
-      opacity: 64%;
-      padding-left: 30px;
-      font-size: 16px;
-      font-weight: 600;
-    }
-
-    input::placeholder {
-      color: ${({ theme }) => theme.colors.secondary};
-      font-size: 16px;
-      font-weight: 600;
-    }
-
     h1 {
       font-style: italic;
       transform: rotate(35deg);
@@ -178,4 +185,11 @@ export const StyledRegisterPage = styled.main`
       font-weight: 600;
     }
   }
+`;
+
+export const StyledDivButtons = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+  margin-top: 7px;
 `;

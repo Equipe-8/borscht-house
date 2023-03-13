@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import { ReactNode } from 'react';
 
 export interface IDefaultProviderProps {
@@ -28,6 +29,10 @@ export interface ICartContext {
   country: ICountry[] | undefined;
   setCountry: (value: React.SetStateAction<ICountry[] | undefined>) => void;
   allCountries: () => Promise<void>;
+  setShowModalInfo: React.Dispatch<React.SetStateAction<boolean>>;
+  showModalInfo: boolean;
+  selectInfo: IProducts | undefined;
+  setSelectInfo: React.Dispatch<React.SetStateAction<IProducts | undefined>>;
 }
 
 export interface IProducts {
@@ -38,7 +43,7 @@ export interface IProducts {
   price: number;
   description: {
     detail: string;
-    igredient: string;
+    ingredient: string;
   };
 }
 
@@ -50,8 +55,8 @@ export interface ICountry {
   countryName: string;
   countryId: number;
   about: {
-    1: string;
-    2: string;
-    3: string;
+    fact_1: string;
+    fact_2: string;
+    fact_3: string;
   };
 }

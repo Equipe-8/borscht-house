@@ -3,14 +3,21 @@ import { StyledProductCard } from './style';
 import { StyledButton } from '../../../styles/button';
 import { StyledParagraph, StyledTitle } from '../../../styles/typography';
 import { CartContext } from '../../../providers/ProductContext/ProductContext';
+import { IProducts } from '../../../providers/ProductContext/@types';
 
 const ProductCard = () => {
-  const { toAdd, searchList } = useContext(CartContext);
+  const { toAdd, searchList, setShowModalInfo, setSelectInfo } =
+    useContext(CartContext);
+
+  const open = (product: IProducts) => {
+    setShowModalInfo(true);
+    setSelectInfo(product);
+  };
 
   return (
     <>
       {searchList.map((item) => {
-        const { id, name, country, img, price, description } = item;
+        const { id, name, country, img, price } = item;
         const itemAdd = { ...item, count: 1 };
 
         return (
@@ -25,11 +32,9 @@ const ProductCard = () => {
               <StyledParagraph className='category'>
                 {country}
                 <StyledButton
-                  id={id}
-                  name={name}
-                  description={description}
                   $buttonSize='medium'
                   $buttonStyle='gray'
+                  onClick={() => open(item)}
                 >
                   Saiba +
                 </StyledButton>

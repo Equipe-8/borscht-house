@@ -20,6 +20,8 @@ export const CartContextProvider = ({ children }: IDefaultProviderProps) => {
   const [country, setCountry] = useState<ICountry[]>();
   const token = localStorage.getItem('@TOKEN');
   const navigate = useNavigate();
+  const [showModalInfo, setShowModalInfo] = useState(false);
+  const [selectInfo, setSelectInfo] = useState<IProducts>();
 
   const searchCart = (event: React.ChangeEvent | any) => {
     setSearch(event.target.value);
@@ -106,7 +108,7 @@ export const CartContextProvider = ({ children }: IDefaultProviderProps) => {
   const allCountries = async () => {
     try {
       const userToken = localStorage.getItem('@TOKEN');
-      const response = await api.get('/coyntries', {
+      const response = await api.get('/countries', {
         headers: {
           Authorization: `Bearer ${userToken}`,
         },
@@ -116,7 +118,10 @@ export const CartContextProvider = ({ children }: IDefaultProviderProps) => {
       console.log(error);
     }
   };
-  allCountries();
+
+  useEffect(() => {
+    allCountries();
+  }, []);
 
   return (
     <CartContext.Provider
@@ -140,6 +145,10 @@ export const CartContextProvider = ({ children }: IDefaultProviderProps) => {
         setCountry,
         increaseProductQuantity,
         decreaseProductQuantity,
+        showModalInfo,
+        setShowModalInfo,
+        selectInfo,
+        setSelectInfo,
       }}
     >
       {children}
