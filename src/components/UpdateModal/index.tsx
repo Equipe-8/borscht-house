@@ -4,15 +4,11 @@
 import { FormEvent, useContext, useState } from 'react';
 import { StyledModal } from './style';
 import { UserContext } from '../../providers/UserContext/UserContext';
-// import { IUser } from '../../providers/UserContext/@types';
 
 export const UpdateModal = () => {
-  const { handleModalEdit, isModalEditOpen, user, editUserAddress } =
-    useContext(UserContext);
-  const [address, setAddress] = useState({
-    address: '',
-  });
-
+  const { handleModalEdit, isModalEditOpen, user, editUserAddress } = useContext(UserContext);
+  const [address, setAddress] = useState('');
+  
   const handleAddressChange = (e: any) => {
     const { value } = e.target;
     if (value !== undefined) {
@@ -22,11 +18,8 @@ export const UpdateModal = () => {
   const token = localStorage.getItem('@TOKEN');
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const newAddress = {
-      address: event.currentTarget.address.value.toString(),
-    };
-    if (typeof newAddress.address === 'string') {
-      editUserAddress(user.id, newAddress, token);
+    if (address.length > 0) {
+      editUserAddress(user.id, address, token);
     }
   };
   return (
@@ -42,7 +35,10 @@ export const UpdateModal = () => {
               <h3>endereço de entrega:</h3>
               <p>{user.address}</p>
             </div>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={(event: FormEvent<HTMLFormElement>) => {
+              setAddress(event.currentTarget.address.value.toString())
+              handleSubmit(event)
+            }}>
               <label htmlFor='address'>
                 Precisa modificar seu endereço de entrega?
               </label>
@@ -51,7 +47,7 @@ export const UpdateModal = () => {
                 name='address'
                 type='text'
                 placeholder='Endereço'
-                value={address.address}
+                value={address}
                 onChange={handleAddressChange}
               />
               <button type='submit'>Atualizar</button>

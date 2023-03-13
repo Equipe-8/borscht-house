@@ -9,15 +9,6 @@ import {
 } from './styled';
 import { CartContext } from '../../../../providers/ProductContext/ProductContext';
 
-interface IInfoModal {
-  countryName: string;
-  name: string;
-  description: {
-    detail: string;
-    ingredient: string;
-  };
-}
-
 const InfoModal = () => {
   const { setShowModalInfo, country, selectInfo, setSelectInfo } =
     useContext(CartContext);
@@ -37,6 +28,7 @@ const InfoModal = () => {
         <section>
           <header>
             <h2>{selectInfo?.name}</h2>
+            <img src={countryInfo?.countryFlag} alt={countryInfo?.countryName}/>
             <StyledCloseButton
               type='button'
               aria-label='Fechar'

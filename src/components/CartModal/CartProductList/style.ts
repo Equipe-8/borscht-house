@@ -18,7 +18,7 @@ export const StyledCartProductList = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 10px;
+    gap: 300px;
 
     .total {
       font-weight: 700;

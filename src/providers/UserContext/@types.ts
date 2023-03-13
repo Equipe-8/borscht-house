@@ -9,21 +9,21 @@ export interface iFormData {
   confirmPassword: string;
 }
 
-export interface iUserContext {
+export interface iContexts {
   children: ReactNode;
 }
 
-export interface iContexts {
+export interface iUserContext{
   handleModalEdit: () => void;
   isModalEditOpen: boolean;
   logOut: () => void;
   editUserAddress: (
     userId: number,
     address: string,
-    token: string
+    token: string | null,
   ) => Promise<void>;
-  user: IUser | undefined;
-  setUser: React.Dispatch<React.SetStateAction<IUser | undefined>>;
+  user: IUser;
+  setUser: React.Dispatch<React.SetStateAction<IUser>>;
   autoLoginUser: () => Promise<void>;
   userLogin: (formData: ILoginFormValues) => Promise<void>;
 }

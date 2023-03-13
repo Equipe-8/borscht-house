@@ -10,8 +10,8 @@ const ProductCard = () => {
     useContext(CartContext);
 
   const open = (product: IProducts) => {
-    setShowModalInfo(true);
     setSelectInfo(product);
+    setShowModalInfo(true);
   };
 
   return (

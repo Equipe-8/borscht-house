@@ -14,7 +14,7 @@ import { ILoginFormValues } from '../../providers/UserContext/@types';
 import { UserContext } from '../../providers/UserContext/UserContext';
 
 const LoginPage = () => {
-  const { autoLoginUser, userLogin } = useContext(UserContext);
+  const { userLogin } = useContext(UserContext);
 
   const {
     handleSubmit,
@@ -23,10 +23,6 @@ const LoginPage = () => {
   } = useForm<ILoginFormValues>({
     resolver: yupResolver(FormDemands),
   });
-
-  useEffect(() => {
-    autoLoginUser();
-  }, []);
 
   const submit = async (data: ILoginFormValues) => {
     userLogin(data);
@@ -40,7 +36,7 @@ const LoginPage = () => {
         <form action='' onSubmit={handleSubmit(submit)}>
           <input type='text' placeholder='Email' {...register('email')} />
           <p>{errors.email?.message}</p>
-          <input type='text' placeholder='Senha' {...register('password')} />
+          <input type='password' placeholder='Senha' {...register('password')} />
           <p>{errors.password?.message}</p>
           <StyledDivLogin>
             <StyledLoginButton type='submit'>Entrar</StyledLoginButton>

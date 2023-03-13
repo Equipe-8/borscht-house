@@ -11,7 +11,6 @@ import { StyledPriceP, StyledTitle } from '../../../../styles/typography';
 import { CartContext } from '../../../../providers/ProductContext/ProductContext';
 
 const CartProductCard = ({ product }: IPropsProductCart) => {
-  console.log(product);
   const {
     removeProductFromCart,
     increaseProductQuantity,

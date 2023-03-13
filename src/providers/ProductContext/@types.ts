@@ -54,6 +54,7 @@ export interface IProductsProps {
 export interface ICountry {
   countryName: string;
   countryId: number;
+  countryFlag: string;
   about: {
     fact_1: string;
     fact_2: string;

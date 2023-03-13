@@ -5,7 +5,7 @@ export const StyledLoginPage = styled.main`
   flex-direction: column;
   min-height: 100vh;
   background-image: url('./src/assets/borscht1 OK.png');
-  background-size: initial;
+  background-size: cover;
   background-position-x: -270px;
   overflow-y: hidden;
 
@@ -22,7 +22,7 @@ export const StyledLoginPage = styled.main`
     height: 50px;
     width: 100%;
     border-radius: 8px;
-    background-color: rgba(217, 204, 193, 0.9);
+    background-color: white;
     padding-left: 16px;
     font-weight: 600;
     border: 1px solid rgb(217, 204, 193);
@@ -67,14 +67,15 @@ export const StyledDivMain = styled.div`
     gap: 12px;
     padding: 20px;
     border-radius: 10px;
-    background-color: rgba(217, 217, 217, 0.4);
+    background-color: rgba(217, 217, 217, 0.6);
     @media (min-width: 769px) {
-      height: 500px;
+      height: max-content;
       width: 400px;
-      margin-left: 100px;
-      margin-top: 335px;
+      margin-left: 150px;
+      margin-top: 250px;
       align-items: center;
       justify-content: center;
+      text-align: center;
       gap: 20px;
     }
   }

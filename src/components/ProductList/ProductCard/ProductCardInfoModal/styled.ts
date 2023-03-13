@@ -15,6 +15,11 @@ export const StyledModal = styled.main`
   align-items: center;
   font-family: ${({ theme }) => theme.fonts.primary};
 
+  img {
+    width: 50px;
+    height: 50px;
+  }
+
   section {
     background-color: white;
     height: 374px;
