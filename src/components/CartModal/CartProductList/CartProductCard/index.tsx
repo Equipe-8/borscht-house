@@ -1,5 +1,5 @@
 import { AiOutlineMinusCircle } from 'react-icons/ai';
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import { Remove, Add } from '@mui/icons-material';
 import {
   StyledCartProductCard,

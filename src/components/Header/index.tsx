@@ -1,5 +1,4 @@
 import { MdShoppingCart, MdLogout } from 'react-icons/md';
-
 import { useContext } from 'react';
 import SearchForm from './SearchForm';
 import { StyledHeader } from './style';
@@ -17,14 +16,19 @@ const Header = () => {
       <StyledContainer containerWidth={1300}>
         <div className='flexGrid'>
           <div className='IconeAndLogo'>
-            <img
-              className='icone'
-              src='src/assets/icone.jpeg'
-              alt='Icone para alterar o endereço'
+            <button
+              className='icone__btn'
+              type='button'
               onClick={() => {
                 handleModalEdit();
               }}
-            />
+            >
+              <img
+                className='icone'
+                src='src/assets/icone.jpeg'
+                alt='Icone para alterar o endereço'
+              />
+            </button>
 
             <img className='logo' src='./src/assets/nome.jpeg' alt='Logo' />
           </div>

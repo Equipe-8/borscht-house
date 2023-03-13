@@ -1,4 +1,3 @@
-/* eslint-disable camelcase */
 import { ReactNode } from 'react';
 
 export interface IDefaultProviderProps {
@@ -17,6 +16,10 @@ export interface ICartContext {
   showModal: boolean;
   totalPrice: number;
   emptyCart: any;
+  country: ICountry[] | undefined;
+  showModalInfo: boolean;
+  selectInfo: IProducts | undefined;
+  loading: boolean;
   setProducts: React.Dispatch<React.SetStateAction<IProducts[]>>;
   setCarts: React.Dispatch<React.SetStateAction<ICart[]>>;
   setSearch: React.Dispatch<React.SetStateAction<string>>;
@@ -26,14 +29,10 @@ export interface ICartContext {
   searchCart: (event: React.ChangeEvent | any) => void;
   increaseProductQuantity: (product: ICart) => void;
   decreaseProductQuantity: (product: ICart) => void;
-  country: ICountry[] | undefined;
   setCountry: (value: React.SetStateAction<ICountry[] | undefined>) => void;
   allCountries: () => Promise<void>;
   setShowModalInfo: React.Dispatch<React.SetStateAction<boolean>>;
-  showModalInfo: boolean;
-  selectInfo: IProducts | undefined;
   setSelectInfo: React.Dispatch<React.SetStateAction<IProducts | undefined>>;
-  loading: boolean;
 }
 
 export interface IProducts {
@@ -57,8 +56,8 @@ export interface ICountry {
   countryId: number;
   countryFlag: string;
   about: {
-    fact_1: string;
-    fact_2: string;
-    fact_3: string;
+    fact1: string;
+    fact2: string;
+    fact3: string;
   };
 }

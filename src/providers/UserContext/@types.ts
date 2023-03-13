@@ -13,16 +13,16 @@ export interface iContexts {
   children: ReactNode;
 }
 
-export interface iUserContext{
-  handleModalEdit: () => void;
+export interface iUserContext {
   isModalEditOpen: boolean;
+  user: IUser;
+  handleModalEdit: () => void;
   logOut: () => void;
   editUserAddress: (
     userId: number,
     address: string,
-    token: string | null,
+    token: string | null
   ) => Promise<void>;
-  user: IUser;
   setUser: React.Dispatch<React.SetStateAction<IUser>>;
   autoLoginUser: () => Promise<void>;
   userLogin: (formData: ILoginFormValues) => Promise<void>;

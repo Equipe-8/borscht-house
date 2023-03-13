@@ -7,7 +7,8 @@ import { StyledParagraph } from '../../../styles/typography';
 import { CartContext } from '../../../providers/ProductContext/ProductContext';
 
 const CartProductList = () => {
-  const { carts, totalPrice, emptyCart, setShowModal } = useContext(CartContext);
+  const { carts, totalPrice, emptyCart, setShowModal } =
+    useContext(CartContext);
 
   return (
     <StyledCartProductList>
@@ -27,8 +28,8 @@ const CartProductList = () => {
       <StyledBtns>
         <StyledButton
           onClick={() => {
-            setShowModal(false)
-            toast.success('Compra finalizada com sucesso!')
+            setShowModal(false);
+            toast.success('Compra finalizada com sucesso!');
           }}
           $buttonSize='default'
           $buttonStyle='green'
@@ -38,7 +39,7 @@ const CartProductList = () => {
         <StyledButton
           onClick={() => {
             emptyCart();
-            setShowModal(false)
+            setShowModal(false);
           }}
           $buttonSize='default'
           $buttonStyle='gray'
