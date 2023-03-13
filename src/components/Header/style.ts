@@ -20,7 +20,8 @@ export const StyledHeader = styled.header`
       font-size: 3rem;
     }
 
-    .icone {
+    .icone,
+    .icone__btn {
       width: 31px;
       height: 31px;
       border-radius: 100%;
@@ -38,9 +39,6 @@ export const StyledHeader = styled.header`
         justify-content: center;
         gap: 25px;
         margin-right: 50px;
-        /* position: relative;
-        top: -178px;
-        left: 98px; */
 
         button {
           background: transparent;

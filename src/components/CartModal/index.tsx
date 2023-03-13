@@ -1,9 +1,8 @@
 import { MdClose } from 'react-icons/md';
 import { useContext } from 'react';
 import CartProductList from './CartProductList';
-
 import { StyledCartModalBox } from './style';
-import { StyledParagraph, StyledTitle } from '../../styles/typography';
+import { StyledTitle } from '../../styles/typography';
 import { CartContext } from '../../providers/ProductContext/ProductContext';
 
 const CartModal = () => {

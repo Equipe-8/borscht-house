@@ -11,6 +11,9 @@ export const StyledCartProductList = styled.div`
 
     height: 200px;
     overflow: auto;
+    ::-webkit-scrollbar {
+      display: none;
+    }
   }
 
   .totalBox {

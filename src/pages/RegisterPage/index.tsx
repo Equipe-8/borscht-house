@@ -24,11 +24,13 @@ const RegisterPage = () => {
 
   const onSubmitRegister = async (data: iFormData) => {
     try {
-      const response = await api.post('/register', data);
-      toast.success('Cadastro realizado com sucesso!');
+      await toast.promise(api.post('/register', data), {
+        pending: 'Carregando',
+        success: 'Cadastro realizado com sucesso!',
+      });
       navigate('/');
-    } catch (error: any) {
-      toast.error(error);
+    } catch (error) {
+      toast.error('Sinto muito, algo deu errado.');
     }
   };
 
@@ -68,7 +70,7 @@ const RegisterPage = () => {
           />
           <p>{errors.confirmPassword?.message}</p>
           <button type='submit'>Cadastrar</button>
-          <button type='submit' onClick={login} className='voltar'>
+          <button type='submit' onClick={login} className='back'>
             Voltar
           </button>
         </form>

@@ -54,7 +54,9 @@ const InfoModal = () => {
           </header>
           {loading ? (
             <div className='loading__container'>
-              <div className='loading'><span>.</span></div>
+              <div className='loading'>
+                <span>.</span>
+              </div>
             </div>
           ) : (
             <StyledContainer>
@@ -73,13 +75,13 @@ const InfoModal = () => {
                   <strong>Curiosidades</strong>
                 </p>
                 <p>
-                  <strong>1:</strong> {countryInfo?.about.fact_1}
+                  <strong>1:</strong> {countryInfo?.about.fact1}
                 </p>
                 <p>
-                  <strong>2:</strong> {countryInfo?.about.fact_2}
+                  <strong>2:</strong> {countryInfo?.about.fact2}
                 </p>
                 <p>
-                  <strong>3:</strong> {countryInfo?.about.fact_3}
+                  <strong>3:</strong> {countryInfo?.about.fact3}
                 </p>
               </StyledSpanCuriosity>
             </StyledContainer>
