@@ -13,7 +13,6 @@ const BaseTitle = ({ children, tag, className }: IBaseTitleProps) => (
     {tag === 'h3' && <h3 className={className}>{children}</h3>}
     {tag === 'h4' && <h4 className={className}>{children}</h4>}
     {tag === 'h5' && <h5 className={className}>{children}</h5>}
-    {tag === 'h6' && <h6 className={className}>{children}</h6>}
     {tag === 'span' && <span className={className}>{children}</span>}
   </>
 );

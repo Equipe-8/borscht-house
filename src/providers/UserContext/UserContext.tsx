@@ -91,10 +91,10 @@ export const UserContextProvider = ({ children }: iContexts) => {
   return (
     <UserContext.Provider
       value={{
-        handleModalEdit,
         isModalEditOpen,
-        logOut,
         user,
+        handleModalEdit,
+        logOut,
         setUser,
         editUserAddress,
         autoLoginUser,

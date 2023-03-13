@@ -109,7 +109,7 @@ export const StyledRegisterPage = styled.main`
     width: 100%;
     border-radius: 8px;
     background-color: ${({ theme }) => theme.colors.tertiary};
-    font-family: ${({ theme}) => theme.fonts.primary};
+    font-family: ${({ theme }) => theme.fonts.primary};
     font-size: 16px;
     font-weight: 600;
     transition-duration: 0.8s;
@@ -190,7 +190,7 @@ export const StyledRegisterPage = styled.main`
       margin-bottom: 10px;
     }
 
-    .voltar {
+    .back {
       height: 50px;
       width: 300px;
       border-radius: 8px;
