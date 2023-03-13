@@ -22,6 +22,7 @@ export const CartContextProvider = ({ children }: IDefaultProviderProps) => {
   const navigate = useNavigate();
   const [showModalInfo, setShowModalInfo] = useState(false);
   const [selectInfo, setSelectInfo] = useState<IProducts>();
+  const [loading, setLoading] = useState(false);
 
   const searchCart = (event: React.ChangeEvent | any) => {
     setSearch(event.target.value);
@@ -106,6 +107,7 @@ export const CartContextProvider = ({ children }: IDefaultProviderProps) => {
   };
 
   const allCountries = async () => {
+    setLoading(true);
     try {
       const userToken = localStorage.getItem('@TOKEN');
       const response = await api.get('/countries', {
@@ -116,12 +118,10 @@ export const CartContextProvider = ({ children }: IDefaultProviderProps) => {
       setCountry(response.data);
     } catch (error) {
       console.log(error);
+    } finally {
+      setLoading(false);
     }
   };
-
-  useEffect(() => {
-    allCountries();
-  }, []);
 
   return (
     <CartContext.Provider
@@ -149,6 +149,7 @@ export const CartContextProvider = ({ children }: IDefaultProviderProps) => {
         setShowModalInfo,
         selectInfo,
         setSelectInfo,
+        loading,
       }}
     >
       {children}

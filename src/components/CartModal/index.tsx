@@ -34,9 +34,6 @@ const CartModal = () => {
               <StyledTitle tag='h3' $fontSize='three' textAlign='center'>
                 Sua sacola está vazia
               </StyledTitle>
-              <StyledParagraph textAlign='center'>
-                Adicione itens
-              </StyledParagraph>
             </div>
           )}
         </div>

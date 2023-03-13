@@ -1,5 +1,5 @@
 import { MdClose } from 'react-icons/md';
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import {
   StyledCloseButton,
   StyledContainer,
@@ -10,8 +10,14 @@ import {
 import { CartContext } from '../../../../providers/ProductContext/ProductContext';
 
 const InfoModal = () => {
-  const { setShowModalInfo, country, selectInfo, setSelectInfo } =
-    useContext(CartContext);
+  const {
+    setShowModalInfo,
+    country,
+    selectInfo,
+    setSelectInfo,
+    allCountries,
+    loading,
+  } = useContext(CartContext);
 
   const countryInfo = country?.find(
     (info) => info.countryName === selectInfo?.country
@@ -22,13 +28,20 @@ const InfoModal = () => {
     setSelectInfo(undefined);
   };
 
+  useEffect(() => {
+    allCountries();
+  }, []);
+
   return (
     <dialog>
       <StyledModal>
         <section>
           <header>
             <h2>{selectInfo?.name}</h2>
-            <img src={countryInfo?.countryFlag} alt={countryInfo?.countryName}/>
+            <img
+              src={countryInfo?.countryFlag}
+              alt={countryInfo?.countryName}
+            />
             <StyledCloseButton
               type='button'
               aria-label='Fechar'
@@ -39,32 +52,36 @@ const InfoModal = () => {
               <MdClose size={21} />
             </StyledCloseButton>
           </header>
-          <StyledContainer>
-            <StyledSpanDish>
-              <p>
-                <strong>Detalhes: </strong>
-                {selectInfo?.description.detail}
-              </p>
-              <p>
-                <strong>Igredientes: </strong>
-                {selectInfo?.description.ingredient}
-              </p>
-            </StyledSpanDish>
-            <StyledSpanCuriosity>
-              <p>
-                <strong>Curiosidades</strong>
-              </p>
-              <p>
-                <strong>1:</strong> {countryInfo?.about.fact_1}
-              </p>
-              <p>
-                <strong>2:</strong> {countryInfo?.about.fact_2}
-              </p>
-              <p>
-                <strong>3:</strong> {countryInfo?.about.fact_3}
-              </p>
-            </StyledSpanCuriosity>
-          </StyledContainer>
+          {loading ? (
+            <span>Carregando</span>
+          ) : (
+            <StyledContainer>
+              <StyledSpanDish>
+                <p>
+                  <strong>Detalhes: </strong>
+                  {selectInfo?.description.detail}
+                </p>
+                <p>
+                  <strong>Igredientes: </strong>
+                  {selectInfo?.description.ingredient}
+                </p>
+              </StyledSpanDish>
+              <StyledSpanCuriosity>
+                <p>
+                  <strong>Curiosidades</strong>
+                </p>
+                <p>
+                  <strong>1:</strong> {countryInfo?.about.fact_1}
+                </p>
+                <p>
+                  <strong>2:</strong> {countryInfo?.about.fact_2}
+                </p>
+                <p>
+                  <strong>3:</strong> {countryInfo?.about.fact_3}
+                </p>
+              </StyledSpanCuriosity>
+            </StyledContainer>
+          )}
         </section>
       </StyledModal>
     </dialog>

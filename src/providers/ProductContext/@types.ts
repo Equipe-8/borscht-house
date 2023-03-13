@@ -33,6 +33,7 @@ export interface ICartContext {
   showModalInfo: boolean;
   selectInfo: IProducts | undefined;
   setSelectInfo: React.Dispatch<React.SetStateAction<IProducts | undefined>>;
+  loading: boolean;
 }
 
 export interface IProducts {
