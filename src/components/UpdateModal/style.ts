@@ -33,10 +33,11 @@ export const StyledModal = styled.main`
     font-weight: 400;
   }
 
-  header > span {
+  header > button {
     cursor: pointer;
     color: ${({ theme }) => theme.colors.white};
     font-size: 18px;
+    width: 50px;
   }
 
   .address {

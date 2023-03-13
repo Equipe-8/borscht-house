@@ -53,7 +53,9 @@ const InfoModal = () => {
             </StyledCloseButton>
           </header>
           {loading ? (
-            <span>Carregando</span>
+            <div className='loading__container'>
+              <div className='loading'><span>.</span></div>
+            </div>
           ) : (
             <StyledContainer>
               <StyledSpanDish>

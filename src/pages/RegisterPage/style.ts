@@ -109,6 +109,8 @@ export const StyledRegisterPage = styled.main`
     width: 100%;
     border-radius: 8px;
     background-color: ${({ theme }) => theme.colors.tertiary};
+    font-family: ${({ theme}) => theme.fonts.primary};
+    font-size: 16px;
     font-weight: 600;
     transition-duration: 0.8s;
     transition-property: ${({ theme }) => theme.colors.tertiary};
