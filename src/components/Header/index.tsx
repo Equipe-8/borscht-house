@@ -5,6 +5,8 @@ import { StyledHeader } from './style';
 import { UserContext } from '../../providers/UserContext/UserContext';
 import { StyledContainer } from '../../styles/grid';
 import { CartContext } from '../../providers/ProductContext/ProductContext';
+import icone from '../../assets/icone.png';
+import nome from '../../assets/nome.png';
 
 const Header = () => {
   const { setShowModal } = useContext(CartContext);
@@ -25,12 +27,12 @@ const Header = () => {
             >
               <img
                 className='icone'
-                src='src/assets/icone.jpeg'
+                src={icone}
                 alt='Icone para alterar o endereço'
               />
             </button>
 
-            <img className='logo' src='./src/assets/nome.jpeg' alt='Logo' />
+            <img className='logo' src={nome} alt='Logo' />
           </div>
           <nav className='nav' role='navigation'>
             <SearchForm />

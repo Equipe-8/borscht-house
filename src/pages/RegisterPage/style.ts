@@ -1,10 +1,11 @@
 import styled from 'styled-components';
+import borscht from '../../assets/borscht.png';
 
 export const StyledRegisterPage = styled.main`
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background-image: url('./src/assets/borscht1 OK.png');
+  background-image: url(${borscht});
   background-size: cover;
   background-position-x: -270px;
   overflow-y: hidden;
@@ -36,6 +37,7 @@ export const StyledRegisterPage = styled.main`
     display: flex;
     align-items: center;
     justify-content: center;
+    border-radius: 8px;
   }
 
   span {
@@ -129,7 +131,7 @@ export const StyledRegisterPage = styled.main`
     display: flex;
     flex-direction: row-reverse;
     min-height: 100vh;
-    background-image: url('./src/assets/borscht1 OK.png');
+    background-image: url(${borscht});
     background-size: cover;
     background-position: center;
     background-position-y: 0;
